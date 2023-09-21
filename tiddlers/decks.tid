@@ -28,7 +28,7 @@ icon: $:/plugins/tidme/fsrs4tw/icon
         >
             <$action-sendmessage
                 $message="tm-open-external-window"
-                $param={{{ [[https://oflg.github.io/Tidme/manual/#]addsuffix{$:/language/tidme/getshared}] }}}
+                $param={{$:/language/tidme/getsharedurl}}
             />
             {{$:/language/tidme/getshared}}
         </$button>
