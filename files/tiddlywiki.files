@@ -1,0 +1,18 @@
+{
+	"tiddlers": [
+		{
+			"file": "fsrs.js.cjs.production.min.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/tidme/fsrs4tw/files/fsrs/fsrs.js",
+				"module-type": "library"
+			}
+		},{
+			"file": "LICENSE",
+			"fields": {
+				"type": "text/plain",
+				"title": "$:/plugins/tidme/fsrs4tw/files/fsrs/license"
+			}
+		}
+	]
+}

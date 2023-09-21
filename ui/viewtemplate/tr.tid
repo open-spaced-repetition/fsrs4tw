@@ -1,0 +1,83 @@
+title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tr
+code-body: yes
+
+<$let
+    deckTiddler=<<currentTiddler>>
+    filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}sort[due]]`
+    filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_due}]`
+    filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_new}]`
+>
+    <div class="tmc-tr">
+        <div style="flex:0 1 40%;display: flex; justify-content:flex-start;">
+            <$link>
+                <$wikify
+                    name="deckCaption"
+                    text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
+                    mode="inline"
+                    output="text"
+                >
+                    <<deckCaption>>
+                    <$list
+                        filter="[<deckTiddler>addsuffix[/log/study]has[list]] :filter[list<currentTiddler>has[title]] -[<deckTiddler>addsuffix[/log/study]!has[list]]"
+                        variable="ignore"
+                    >
+                        <$button
+                            class="tc-btn-invisible tc-tiddlylink"
+                        >
+                            {{$:/core/images/timestamp-on}}
+                        </$button>
+                    </$list>
+                </$wikify>
+            </$link>
+        </div>
+        <div style="flex:0 1 15%; display: flex; justify-content:center;">
+            <$let
+                filter_search=<<filter_learn>>
+            >
+                <$button
+                    actions={{$:/plugins/tidme/fsrs4tw/buttons/action/search}}
+                    class="tc-btn-invisible tc-tiddlylink"
+                    style="color:red;"
+                >
+                    <$count filter="[subfilter<filter_learn>]"/>
+                </$button>
+            </$let>
+        </div>
+        <div style="flex:0 1 15%; display: flex; justify-content:center;">
+            <$let
+                filter_search=<<filter_due>>
+            >
+                <$button
+                    actions={{$:/plugins/tidme/fsrs4tw/buttons/action/search}}
+                    class="tc-btn-invisible tc-tiddlylink"
+                    style="color:green;"
+                >
+                    <$count filter="[subfilter<filter_due>]"/>
+                </$button>
+            </$let>
+        </div>
+        <div style="flex:0 1 15%; display: flex; justify-content:center;">
+            <$let
+                filter_search=<<filter_new>>
+            >
+                <$button
+                    actions={{$:/plugins/tidme/fsrs4tw/buttons/action/search}}
+                    class="tc-btn-invisible tc-tiddlylink"
+                    style="color:blue;"
+                >
+                    <$count filter="[subfilter<filter_new>]"/>
+                </$button>
+            </$let>
+        </div>
+        <div style="flex:0 1 15%; display: flex; justify-content:flex-end;">
+        <$let
+            filter_search=`[[$(deckTiddler)$]] [[$(deckTiddler)$]shadowsource[]] [subfilter{$(deckTiddler)$!!card}is[tiddler]] [[$(deckTiddler)$]shadowsource[]plugintiddlers[]is[tiddler]] +[!prefix[$:/plugins/tidme/]]`
+        >
+            <$list
+                filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Action]!has[draft.of]]"
+                template="$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button"
+            />
+        </$let>
+        </div>
+    </div>
+</$let>

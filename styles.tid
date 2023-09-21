@@ -1,0 +1,124 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/tidme/fsrs4tw/styles.css
+
+.tmc-thead{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    font-weight: bold;
+    border-bottom: 1px solid #f1f1f1;
+    padding-bottom:10px;
+}
+
+.tmc-tr{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    height: 40px;
+}
+
+.tmc-showbutton{
+    margin: 0 3px !important;
+}
+
+.tmc-button-hide{
+    opacity: 0;
+    margin: 0 3px !important;
+}
+
+.tmc-tr:hover {
+    background-color: #f1f1f1;
+}
+
+.tmc-tr:hover .tmc-button-hide{
+    opacity: 1 !important;
+}
+
+.tmc-btn-primary {
+    background: <<colour primary>>;
+    color: <<colour background>>;
+    fill: <<colour background>>;
+}
+
+.tmc-btn-dirty {
+    background: <<colour dirty-indicator>>;
+    color: <<colour background>>;
+    fill: <<colour background>>;
+}
+
+.tmc-btn-dirty {
+    background: <<colour dirty-indicator>>;
+    color: <<colour background>>;
+    fill: <<colour background>>;
+}
+
+.tmc-btn-again{
+    color: red !important;
+}
+
+.tmc-btn-hard{
+    color: orange !important;
+}
+
+.tmc-btn-good{
+    color: green !important;
+}
+
+.tmc-btn-easy{
+    color: blue !important;
+}
+
+.tmc-decks-button-wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.tmc-file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+
+.tmc-file-input-wrapper input[type=file] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 999px;
+    max-width: 100%;
+    max-height: 100%;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.tmc-tiddler-empty ~ .tc-tiddler-title .tc-title{
+    color: <<colour background>> !important;
+    font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
+}
+
+.tmc-tiddler-empty ~ .tc-tiddler-title .tc-title .tc-system-title-prefix{
+    color: <<colour background>> !important;
+    font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
+}
+
+.hideinput span{
+    color:grey;
+    font-size:10px;
+}
+
+.hideinput input{
+    display: block;
+    outline: none;
+    border: none;
+    width:100%;
+    text-align:center;
+    color:grey;
+    font-size:10px;
+}

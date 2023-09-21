@@ -1,0 +1,25 @@
+title: $:/config/EditTemplateFields/Visibility/
+
+difficulty: hide
+due: hide
+elapsed_days: hide
+lapses: hide
+last_review: hide
+reps: hide
+scheduled_days: hide
+stability: hide
+state: hide
+description: hide
+card: hide
+card_unfold: hide
+card_exclude: hide
+order: hide
+order_learn: hide
+order_new: hide
+order_due: hide
+leech_threshold: hide
+leech_action: hide
+state_learn: hide
+state_due: hide
+state_new: hide
+p: hide

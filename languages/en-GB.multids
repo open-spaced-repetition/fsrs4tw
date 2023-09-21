@@ -1,0 +1,54 @@
+title: $:/language/tidme/
+
+tidme: Tidme
+tidmetip:  Lifelong knowledge, deep in mind
+default: Default
+descriptioncontent: <center>The default deck, also a template for creating deck.</center>
+deck: Deck
+learn: Learn
+due: Due
+new: New
+options: Options
+caption: Caption
+cardfilter: Card [[filter|https://tiddlywiki.com/#Introduction%20to%20filter%20notation]]
+cardfiltertip: Filtering tiddlers as cards in this Deck.
+description: Description
+advanced: Advanced
+studyorder: Study Order
+cardtype: Card type
+displayorderfilter: Display Order Filter
+learncard: Due card
+duecard: Due card
+newcard: New card
+cardtypefilter: Card Type Filter
+excludecard: Exclude card
+unfoldcard: Unfold card
+leech: Leech
+leechthreshold: Threshold
+leechaction: Action
+expert: Expert
+experttip: I have fully understood the implications of the following expert options and accept the potentially damaging consequences.
+cardstatefilter: Card [[State|https://github.com/open-spaced-repetition/fsrs.js#usage]] Filter
+param: Param 参数
+fsrsparam: [[FSRS algorithm|https://github.com/open-spaced-repetition/fsrs.js#usage]]
+exportdelete: Export or delete
+getshared: Get Shared
+createdeck: Create Deck
+importfile: Import File
+startstudy: Start Study
+again: Again
+hard: Hard
+good: Good
+easy: Easy
+next: Next
+stopstudy: Stop Study
+cloze: Cloze Question
+clozetip: Set the selected text as cloze of Cloze Question(see manual for usage)
+select: Select Question
+selecttip: Set the selected text as options of Select Question(see manual for usage)
+lastdue: Due
+lastreview: Review
+pluginlibrary: Tidme Plugin Library
+pluginlibrarytip: This plugin library can be used to install and update plugins related to Tidme.
+deckslibrary: Shared Decks Library
+deckslibrarytip: This plugin library can be used to install and update shared decks related to Tidme.

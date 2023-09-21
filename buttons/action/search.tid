@@ -1,0 +1,36 @@
+title: $:/plugins/tidme/fsrs4tw/buttons/action/search
+tags: $:/tags/TidmeDeck/Action
+icon: $:/core/images/advanced-search-button
+description: {{$:/language/tidme/exportdelete}}
+condition: [<deckTiddler>]
+button-classes: tmc-button-hide
+code-body: yes
+
+<!-- \define filter_search()
+[[$(deckTiddler)$]] [[$(deckTiddler)$]shadowsource[]] [subfilter{$(deckTiddler)$!!card}is[tiddler]] [[$(deckTiddler)$]shadowsource[]plugintiddlers[]is[tiddler]] +[!prefix[$:/plugins/tidme/]]
+\end -->
+
+<$action-setfield
+    $tiddler="$:/temp/advancedsearch"
+    text=<<filter_search>>
+/>
+<$action-setfield
+    $tiddler="$:/temp/advancedsearch/input"
+    text=<<filter_search>>
+/>
+<$action-setfield
+    $tiddler="$:/temp/advancedsearch/refresh"
+    text="yes"
+/>
+<$action-setfield
+    $tiddler="$:/state/tab--1498284803"
+    text="$:/core/ui/AdvancedSearch/Filter"
+/>
+<$action-navigate
+    $to="$:/AdvancedSearch"
+    $scroll="yes"
+/>
+<$action-sendmessage
+    $message="tm-focus-selector"
+    $param=".tc-advanced-search input"
+/>

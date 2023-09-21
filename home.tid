@@ -1,0 +1,34 @@
+caption: {{$:/plugins/tidme/fsrs4tw/icon}} {{$:/language/tidme/tidme}}
+description: {{$:/language/tidme/tidmetip}}
+tags: $:/tags/PageControls
+title: $:/plugins/tidme/fsrs4tw/home
+
+\whitespace trim
+\define tidme-home-button(class)
+\whitespace trim
+<$button
+    to="$:/Decks"
+    tooltip={{$:/language/tidme/tidme}}
+    aria-label={{$:/language/tidme/tidme}}
+    class="""$(tv-config-toolbar-class)$ $class$"""
+>
+    <$list
+        filter="[<tv-config-toolbar-icons>match[yes]]"
+    >
+        {{$:/plugins/tidme/fsrs4tw/icon}}
+    </$list>
+    <$list
+        filter="[<tv-config-toolbar-text>match[yes]]"
+    >
+        <span class="tc-btn-text">
+            <$text
+                text={{$:/language/tidme/tidme}}
+            />
+        </span>
+    </$list>
+</$button>
+\end
+
+<$list filter="[list<tv-story-list>] +[field:title[$:/ControlPanel]]" emptyMessage=<<tidme-home-button>>>
+<<tidme-home-button "tc-selected">>
+</$list>

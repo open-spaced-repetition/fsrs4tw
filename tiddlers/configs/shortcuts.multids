@@ -1,0 +1,11 @@
+title: $:/config/shortcuts/
+
+tidme-stopstudy: s
+tidme-fold: Space
+tidme-again: 1
+tidme-hard: 2
+tidme-good: 3
+tidme-easy: 4
+tidme-next: n
+tidme-cloze: alt-c
+tidme-select: alt-s

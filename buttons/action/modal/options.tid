@@ -1,0 +1,129 @@
+title: $:/plugins/tidme/fsrs4tw/buttons/action/modal/options
+footer: <div style="display:flex;width:100%;justify-content:space-between;"><$button message="tm-close-tiddler" class="tmc-btn-dirty"><$action-deletetiddler $tiddler=<<deckTiddler>>/>Delete</$button><div><$button message="tm-close-tiddler"><$action-deletetiddler $tiddler="$:/temp/tidme/options"/>Cancle</$button>  <$button message="tm-close-tiddler" class="tmc-btn-primary"><$action-createtiddler $basetitle=<<deckTiddler>> $template="$:/temp/tidme/options" $overwrite="yes"/>Save</$button></div></div>
+subtitle: {{$:/language/tidme/options}}: <$text text=<<deckTiddler>> />
+code-body: yes
+
+\define inputfield(field)
+<$edit-text tiddler="$:/temp/tidme/options" tag="input" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}}/>
+\end
+
+\define textfield(field)
+<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}/>
+\end
+
+\define studyorder()
+<$select
+    tiddler="$:/temp/tidme/options"
+    field="order"
+    default="due-new"
+>
+    <option value="due-new">
+        due-new
+    </option>
+    <option value="new-due">
+        new-due
+    </option>
+    <option value="random">
+        random
+    </option>
+</$select>
+\end
+
+\define leechthreshold()
+<center>''<$text text={{$:/temp/tidme/options!!leech_threshold}}/>''</center>
+<$range
+    tiddler="$:/temp/tidme/options"
+    field="leech_threshold"
+    min="3"
+    max="10"
+    default="8"
+    increment="1"
+/>
+\end
+
+\define disablededit(field)
+<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}} disabled={{{ [{$:/config/Tidme/expert}match[yes]then[no]else[yes]] }}}/>
+\end
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/caption}}|<<inputfield caption>>|
+|{{$:/language/tidme/cardfilter}}|<<textfield card>><br>@@font-size:10px;{{$:/language/tidme/cardfiltertip}}@@|
+|{{$:/language/tidme/description}}|<<textfield description>>|
+
+<$reveal
+    default={{$:/config/Tidme/advanced}}
+    type="nomatch"
+    text="yes"
+    animate="yes"
+>
+    <center>
+        <$button
+            set="$:/config/Tidme/advanced"
+            setTo="yes"
+            class="tc-btn-invisible"
+        >
+            {{$:/core/images/unfold-button}}
+        </$button>
+    </center>
+</$reveal>
+
+<$reveal
+    default={{$:/config/Tidme/advanced}}
+    type="match"
+    text="yes"
+    animate="yes"
+>
+
+    <center>
+        <$button
+            set="$:/config/Tidme/advanced"
+            setTo="no"
+            class="tc-btn-invisible"
+        >
+            {{$:/core/images/fold-button}}
+        </$button>
+    </center>
+
+
+!! {{$:/language/tidme/advanced}}
+
+!!! {{$:/language/tidme/studyorder}}
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/cardtype}}|<<studyorder>>|
+
+!!! {{$:/language/tidme/displayorderfilter}}
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/duecard}}|<<textfield order_due>>|
+|{{$:/language/tidme/newcard}}|<<textfield order_new>>|
+
+!!! {{cardtypefilter}}
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/excludecard}}|<<textfield card_exclude>>|
+|{{$:/language/tidme/unfoldcard}}|<<textfield card_unfold>>|
+
+!!! {{$:/language/tidme/leech}}
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/leechthreshold}}|<<leechthreshold>>|
+|{{$:/language/tidme/leechaction}}|<<textfield leech_action>>|
+
+!! {{$:/language/tidme/expert}}
+
+<$checkbox tiddler="$:/config/Tidme/expert" field="text" checked="yes" unchecked="no" default="no"> @@color:red;font-size:10px;{{$:/language/tidme/experttip}}@@ </$checkbox>
+
+!!! {{$:/language/tidme/cardstatefilter}}
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/learncard}}|<<disablededit state_learn>>|
+|{{$:/language/tidme/newcard}}|<<disablededit state_new>>|
+|{{$:/language/tidme/newcard}}|<<disablededit state_due>>|
+
+!!! {{$:/language/tidme/param}}
+
+|tc-max-width tc-edit-max-width|k
+|{{$:/language/tidme/fsrsparam}}|<<disablededit p>>|
+
+</$reveal>

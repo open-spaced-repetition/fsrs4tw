@@ -1,0 +1,10 @@
+tags: $:/tags/ViewTemplate/Subtitle
+title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/subtitle/due
+list-after: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/subtitle/review
+code-body: yes
+
+<$list
+    filter="[<currentTiddler>has[due]]"
+>
+    {{$:/language/tidme/lastdue}}: <$view field="due" format="relativedate"/>
+</$list>

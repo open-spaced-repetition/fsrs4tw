@@ -1,0 +1,165 @@
+title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button
+code-body: yes
+
+\define tidme-button-icon()
+<$list
+    filter="[all[current]!has[custom-icon]]"
+    variable="no-custom-icon"
+>
+    <$transclude
+        tiddler={{!!icon}}
+    />
+</$list>
+\end
+
+\define tidme-button-caption()
+<$list
+    filter="[all[current]!has[custom-caption]]"
+    variable="no-custom-caption"
+>
+   <$wikify
+        name="caption-text"
+        text={{!!caption}}
+        mode="inline"
+        output="text"
+    >
+        <<caption-text>>
+   </$wikify>
+</$list>
+\end
+
+\define tidme-button-tooltip()
+{{!!description}} <$macrocall
+    $name="displayshortcuts"
+    $output="text/plain"
+    shortcuts={{!!key}}
+    prefix="` - ["
+    separator="] ["
+    suffix="]`"
+/>
+\end
+
+\define tidme-button()
+<$list
+    filter={{!!condition}}
+    variable="list-condition"
+>
+    <$wikify
+        name="tooltip-text"
+        text=<<tidme-button-tooltip>>
+        mode="inline"
+        output="text"
+    >
+        <$list
+            filter="[all[current]!has[popup]!has[modal]]"
+            variable="no-popup-modal"
+        >
+            <$set
+                name=disabled
+                filter={{!!condition-disabled}}
+            >
+                <$button
+                    class="tc-btn-invisible $(buttonClasses)$"
+                    tooltip=<<tooltip-text>>
+                    aria-label=<<tooltip-text>>
+                    actions={{!!actions}}
+                    disabled=<<disabled>>
+                >
+                    <<tidme-button-icon>>
+                    <<tidme-button-caption>>
+                    <$transclude
+                        tiddler=<<currentTiddler>>
+                        field="text"
+                    />
+                </$button>
+            </$set>
+        </$list>
+        <$list
+            filter="[all[current]has[popup]]"
+            variable="popup"
+        >
+            <$set
+                name="popup-state"
+                value=<<qualify "$:/state/TidmeButtonPopup">>
+            >
+                <$set
+                    name=disabled
+                    filter={{!!condition-disabled}}
+                >
+                    <$button
+                        popup=<<popup-state>>
+                        class="tc-popup-keep tc-btn-invisible $(buttonClasses)$"
+                        selectedClass="tc-selected"
+                        tooltip=<<tooltip-text>>
+                        actions={{!!actions}}
+                        disabled=<<disabled>>
+                    >
+                        <<tidme-button-icon>>
+                        <<tidme-button-caption>>
+                        <$transclude
+                            tiddler=<<currentTiddler>>
+                            field="text"
+                        />
+                    </$button>
+                </$set>
+                <$reveal
+                    state=<<popup-state>>
+                    type="popup"
+                    position={{{ [{!!position}] ~[[below]] }}}
+                    animate="yes"
+                    tag="span"
+                >
+                    <div
+                        class="tc-drop-down tc-popup-keep"
+                        style="min-width:0;"
+                    >
+                        <$transclude
+                            tiddler={{!!popup}}
+                            mode="inline"
+                        />
+                    </div>
+                </$reveal>
+            </$set>
+        </$list>
+        <$list
+            filter="[all[current]has[modal]]"
+            variable="modal"
+        >
+            <$set
+                name=disabled
+                filter={{!!condition-disabled}}
+            >
+                <$button
+                    class="tc-btn-invisible $(buttonClasses)$"
+                    tooltip=<<tooltip-text>>
+                    aria-label=<<tooltip-text>>
+                    actions={{!!actions}}
+                    disabled=<<disabled>>
+                >
+                    <<tidme-button-icon>>
+                    <<tidme-button-caption>>
+                    <$transclude
+                        tiddler=<<currentTiddler>>
+                        field="text"
+                    />
+                    <$action-sendmessage $message="tm-modal" $param={{!!modal}} deckTiddler=<<deckTiddler>>/>
+                </$button>
+            </$set>
+        </$list>
+    </$wikify>
+</$list>
+\end
+
+\define tidme-button-outer()
+
+<$wikify
+    name="buttonClasses"
+    text={{!!button-classes}}
+    mode="inline"
+    output="text"
+>
+    <<tidme-button>>
+</$wikify>
+\end
+
+<<tidme-button-outer>>

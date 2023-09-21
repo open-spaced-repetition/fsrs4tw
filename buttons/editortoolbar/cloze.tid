@@ -1,0 +1,14 @@
+caption: {{$:/language/tidme/cloze}}
+condition: [<targetTiddler>]
+description: {{$:/language/tidme/clozetip}}
+icon: $:/plugins/tidme/fsrs4tw/icons/cloze
+shortcuts: ((tidme-cloze))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/tidme/fsrs4tw/buttons/editortoolbar/cloze
+
+<$action-sendmessage
+    $message="tm-edit-text-operation"
+    $param="wrap-selection"
+    prefix="<<C "
+    suffix=">>"
+/>

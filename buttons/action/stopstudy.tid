@@ -1,0 +1,8 @@
+title: $:/plugins/tidme/fsrs4tw/buttons/action/stopstudy
+tags: $:/tags/TidmeDeck/Study
+caption: {{$:/language/tidme/stopstudy}}
+condition: [<deckTiddler>addsuffix[/log/study]has[list]] :filter[list<currentTiddler>has[title]] -[<deckTiddler>addsuffix[/log/study]!has[list]]
+button-classes: tc-tiddlylink
+code-body: yes
+
+<$action-deletefield $tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}} list/>

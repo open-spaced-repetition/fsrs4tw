@@ -1,0 +1,5 @@
+tags: $:/tags/FieldEditorFilter
+title: $:/config/FieldEditorFilters/tidme/caption
+list-before: $:/config/FieldEditorFilters/default
+
+[<storyTiddler>!has:field[caption]then[$:/core/ui/EditTemplate/fieldEditor/default]] ~[<currentTiddler>match[caption]then[$:/plugins/tidme/fsrs4tw/ui/EditTemplate/field]]

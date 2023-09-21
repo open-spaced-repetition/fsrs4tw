@@ -1,0 +1,17 @@
+caption: {{$:/language/tidme/select}}
+condition: [<targetTiddler>]
+description: {{$:/language/tidme/selecttip}}
+icon: $:/plugins/tidme/fsrs4tw/icons/select
+list-after: $:/plugins/tidme/fsrs4tw/buttons/editortoolbar/cloze
+shortcuts: ((tidme-select))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/tidme/fsrs4tw/buttons/editortoolbar/select
+
+<$action-sendmessage
+    $message="tm-edit-text-operation"
+    $param="wrap-selection"
+    prefix='<<S """
+'
+    suffix='
+""">>'
+/>

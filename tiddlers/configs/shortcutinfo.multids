@@ -1,0 +1,11 @@
+title: $:/config/ShortcutInfo/
+
+tidme-stopstudy: {{$:/language/tidme/stopstudy}}
+tidme-fold: {{$:/language/Buttons/Fold/Hint}}
+tidme-again: {{$:/language/tidme/again}}
+tidme-hard: {{$:/language/tidme/hard}}
+tidme-good: {{$:/language/tidme/good}}
+tidme-easy: {{$:/language/tidme/easy}}
+tidme-easy: {{$:/language/tidme/next}}
+tidme-cloze: {{$:/language/tidme/cloze}}
+tidme-select: {{$:/language/tidme/select}}

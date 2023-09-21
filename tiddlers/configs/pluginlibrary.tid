@@ -1,0 +1,6 @@
+caption: {{$:/language/tidme/pluginlibrary}}
+tags: $:/tags/PluginLibrary
+title: $:/config/TiddlyMemoPluginLibrary
+url: https://oflg.github.io/Tidme/library/
+
+{{$:/language/tidme/pluginlibrarytip}}
