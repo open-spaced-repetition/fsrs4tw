@@ -29,7 +29,7 @@ leechaction: Action
 expert: Expert
 experttip: I have fully understood the implications of the following expert options and accept the potentially damaging consequences.
 cardstatefilter: Card [[State|https://github.com/open-spaced-repetition/fsrs.js#usage]] Filter
-param: Param 参数
+param: Param
 fsrsparam: [[FSRS algorithm|https://github.com/open-spaced-repetition/fsrs.js#usage]]
 exportdelete: Export or delete
 getshared: Get Shared

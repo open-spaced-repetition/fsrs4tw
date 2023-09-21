@@ -1,6 +1,6 @@
-caption: {{$:/language/fishing-cannedfish/deckslibrary}}
+caption: {{$:/language/tidme/deckslibrary}}
 tags: $:/tags/PluginLibrary
 title: $:/config/Deckslibrary
 url: https://oflg.github.io/Tidme-decks/library/
 
-{{$:/language/fishing-cannedfish/deckslibrarytip}}
+{{$:/language/tidme/deckslibrarytip}}
