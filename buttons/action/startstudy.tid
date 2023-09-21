@@ -39,11 +39,13 @@ code-body: yes
             <$action-setmultiplefields
                 $fields="[<card>jsonindexes[]]"
                 $values="[<card>jsonindexes[]] :map[<card>jsonget<currentTiddler>]"
+                $template={{$:/config/TimestampDisable}}
             />
             <$action-setmultiplefields
                 $tiddler={{{ [<deckTiddler>addsuffix[/log/]addsuffix<now [UTC]YYYY0MM0DD>] }}}
-                $fields="tags [<now [UTC]0hh0mm0ssXXX>]"
+                $fields="tags [<now [UTC]0hh0mm0ssXXX>addprefix[log_]]"
                 $values="[<deckTiddler>] [<review_log>]"
+                $template={{$:/config/TimestampDisable}}
             />
             <$action-sendmessage
                     $message="tm-close-tiddler"
