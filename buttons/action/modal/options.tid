@@ -118,8 +118,8 @@ code-body: yes
 
 |tc-max-width tc-edit-max-width|k
 |{{$:/language/tidme/learncard}}|<<disablededit state_learn>>|
+|{{$:/language/tidme/duecard}}|<<disablededit state_due>>|
 |{{$:/language/tidme/newcard}}|<<disablededit state_new>>|
-|{{$:/language/tidme/newcard}}|<<disablededit state_due>>|
 
 !!! {{$:/language/tidme/param}}
 
