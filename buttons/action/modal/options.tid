@@ -98,7 +98,7 @@ code-body: yes
 |{{$:/language/tidme/duecard}}|<<textfield order_due>>|
 |{{$:/language/tidme/newcard}}|<<textfield order_new>>|
 
-!!! {{cardtypefilter}}
+!!! {{$:/language/tidme/cardtypefilter}}
 
 |tc-max-width tc-edit-max-width|k
 |{{$:/language/tidme/excludecard}}|<<textfield card_exclude>>|
