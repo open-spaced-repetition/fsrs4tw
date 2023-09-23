@@ -99,12 +99,12 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
 }
 
 .tmc-tiddler-empty ~ .tc-tiddler-title .tc-title{
-    color: <<colour background>> !important;
+    color: <<colour tiddler-background>> !important;
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
 }
 
 .tmc-tiddler-empty ~ .tc-tiddler-title .tc-title .tc-system-title-prefix{
-    color: <<colour background>> !important;
+    color: <<colour tiddler-background>> !important;
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
 }
 
