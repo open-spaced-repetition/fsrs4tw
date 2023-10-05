@@ -29,6 +29,6 @@ title: $:/plugins/tidme/fsrs4tw/home
 </$button>
 \end
 
-<$list filter="[list<tv-story-list>] +[field:title[$:/ControlPanel]]" emptyMessage=<<tidme-home-button>>>
+<$list filter="[list<tv-story-list>] +[field:title[$:/Decks]]" emptyMessage=<<tidme-home-button>>>
 <<tidme-home-button "tc-selected">>
 </$list>
