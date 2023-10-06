@@ -9,20 +9,14 @@ code-body: yes
 <span style=`color:${ [<rating>match[Again]then[red]] ~[<rating>match[Hard]then[orange]] ~[<rating>match[Good]then[green]]~[<rating>match[Easy]then[blue]] }$;`>
     <$text text={{{ [<rating>match[Again]then{$:/language/tidme/again}] ~[<rating>match[Hard]then{$:/language/tidme/hard}] ~[<rating>match[Good]then{$:/language/tidme/good}] ~[<rating>match[Easy]then{$:/language/tidme/easy}]  ~[<rating>match[Next]then{$:/language/tidme/next}] ~[{$:/language/tidme/startstudy}] }}}/>
 </span>
-<$let
-    rating={{{ [<rating>match[Next]then[Easy]else<rating>] }}}
-    leech_threshold={{{ [<deckTiddler>get[leech_threshold]] }}}
-    leech_action={{{ [<deckTiddler>get[leech_action]] }}}
-    p={{{ [<deckTiddler>get[p]] }}}
-    currentTiddler=<<studyTiddler>>
+<$list
+    filter="[<studyTiddler>!is[blank]]"
 >
-    <$reveal
-        default=<<rating>>
-        type="nomatch"
-        text=""
+    <$list
+        filter="[<rating>match[Next]then[Easy]else<rating>!is[blank]]"
+        variable="rating"
     >
         <$let
-            fsrs_json={{{ [<currentTiddler>fsrs<p>] }}}
             card={{{ [<fsrs_json>jsonget[Rating],<rating>] :map[<fsrs_json>jsonextract[Cards],<currentTiddler>,[card]] }}}
             review_log={{{ [<fsrs_json>jsonget[Rating],<rating>] :map[<fsrs_json>jsonextract[Cards],<currentTiddler>,[review_log]] }}}
         >
@@ -39,13 +33,13 @@ code-body: yes
             <$action-setmultiplefields
                 $fields="[<card>jsonindexes[]]"
                 $values="[<card>jsonindexes[]] :map[<card>jsonget<currentTiddler>]"
-                $template={{$:/config/TimestampDisable}}
+                $timestamp={{$:/config/TimestampDisable}}
             />
-            <$action-setmultiplefields
+            <$action-setfield
                 $tiddler={{{ [<deckTiddler>addsuffix[/log/]addsuffix<now [UTC]YYYY0MM0DD>] }}}
-                $fields="tags [<now [UTC]0hh0mm0ssXXX>addprefix[log_]]"
-                $values="[<deckTiddler>] [<review_log>]"
-                $template={{$:/config/TimestampDisable}}
+                $index={{{ [<now [UTC]0hh0mm0ssXXX>] }}}
+                $value={{{ [<review_log>] }}}
+                $timestamp={{$:/config/TimestampDisable}}
             />
             <$action-sendmessage
                     $message="tm-close-tiddler"
@@ -57,11 +51,24 @@ code-body: yes
                 <$text text={{{ [<card>jsonget[due]format:relativedate[]] }}}/>
             </div>
         </$let>
-    </$reveal>
-</$let>
-<$let
-    nextTiddler=`${ [subfilter<filter_queue>first[]] }$`
+    </$list>
+</$list>
+<$list
+    filter="[subfilter<filter_queue>first[]]"
+    variable="nextTiddler"
 >
+    <$action-setfield
+        $tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}}
+        list={{{ [<nextTiddler>format:titlelist[]] }}}
+    />
+    <$action-setfield
+        $tiddler={{{ [<nextTiddler>addprefix[$:/state/folded/]] }}}
+        text={{{ [subfilter<filter_unfold>match<nextTiddler>then[show]else[hide]] }}}
+    />
+    <$action-navigate
+        $to=<<nextTiddler>>
+        $scroll="yes"
+    />
     <$reveal
         default=<<nextTiddler>>
         type="match"
@@ -72,16 +79,4 @@ code-body: yes
         <$action-sendmessage $message="tm-confetti-launch" originY=0.55 spread=30 delay=600/>
         <$action-sendmessage $message="tm-notify" $param="$:/plugins/tidme/fsrs4tw/notify/congratulation"/>
     </$reveal>
-    <$action-setfield
-        $tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}}
-        list={{{ [<nextTiddler>format:titlelist[]] }}}
-    />
-    <$action-setfield
-        $tiddler={{{ [<nextTiddler>addprefix[$:/state/folded/]] }}}
-        text={{{ [subfilter<filter_excerpt>match<nextTiddler>then[show]else[hide]] }}}
-    />
-    <$action-navigate
-        $to=<<nextTiddler>>
-        $scroll="yes"
-    />
-</$let>
+</$list>

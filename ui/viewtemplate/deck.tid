@@ -36,7 +36,7 @@ code-body: yes
             filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}]`
             filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}]`
             filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}]`
-            filter_excerpt=`[subfilter{$(deckTiddler)$!!card_unfold}]`
+            filter_unfold=`[subfilter{$(deckTiddler)$!!card_unfold}]`
             filter_random=`[subfilter<filter_due>] [subfilter<filter_new>] +[sortrandom[]]`
             due-new=`$(filter_learn)$ $(filter_due)$ $(filter_new)$`
             new-due=`$(filter_learn)$ $(filter_new)$ $(filter_due)$`

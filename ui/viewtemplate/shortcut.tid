@@ -29,10 +29,14 @@ code-body: yes
     <div class=`${ [<currentTiddler>has[caption]then[tmc-tiddler-empty]] }$`/>
     <$let
         studyTiddler=<<currentTiddler>>
+        p={{{ [<deckTiddler>get[p]] }}}
+        fsrs_json={{{ [<studyTiddler>fsrs<p>] }}}
+        leech_threshold={{{ [<deckTiddler>get[leech_threshold]] }}}
+        leech_action={{{ [<deckTiddler>get[leech_action]] }}}
         filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}sort[due]]`
         filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_due}]`
         filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_new}]`
-        filter_excerpt=`[subfilter{$(deckTiddler)$!!card_unfold}]`
+        filter_unfold=`[subfilter{$(deckTiddler)$!!card_unfold}]`
         filter_random=`[subfilter<filter_due>] [subfilter<filter_new>] +[sortrandom[]]`
         due-new=`$(filter_learn)$ $(filter_due)$ $(filter_new)$`
         new-due=`$(filter_learn)$ $(filter_new)$ $(filter_due)$`
@@ -57,7 +61,12 @@ code-body: yes
                     <$keyboard key="((tidme-good))" actions=<<ratingaction Good>>>
                     <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>>>
                     <$keyboard key="((tidme-next))" actions=<<ratingaction Next>>>
-                        <$edit-text tag="input" tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}} focus="yes" placeholder=<<deckCaption>>/>
+                        <$edit-text
+                            tag="input"
+                            tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}}
+                            focus={{{ [{$:/temp/tidme/study/question}then[no]else[yes]] }}}
+                            placeholder=<<deckCaption>>
+                        />
                     </$keyboard>
                     </$keyboard>
                     </$keyboard>
