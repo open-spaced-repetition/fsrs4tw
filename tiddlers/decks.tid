@@ -23,13 +23,12 @@ icon: $:/plugins/tidme/fsrs4tw/icon
 
 <div class="tmc-decks-button-wrapper">
         <$button
+            message="tm-modal"
+            param="$:/core/ui/ControlPanel/Modals/AddPlugins"
+            tooltip={{$:/language/ControlPanel/Plugins/Add/Hint}}
             style="margin:0 10px"
             class="tc-btn-invisible tc-tiddlylink"
         >
-            <$action-sendmessage
-                $message="tm-open-external-window"
-                $param={{$:/language/tidme/getsharedurl}}
-            />
             {{$:/language/tidme/getshared}}
         </$button>
         <$button
@@ -39,7 +38,8 @@ icon: $:/plugins/tidme/fsrs4tw/icon
             <$action-createtiddler
                 $basetitle="$:/Deck/new"
                 $template="$:/Deck/default"
-                caption="" description=""
+                caption=""
+                description=""
             >
                 <$let
                     deckTiddler=<<createTiddler-title>>

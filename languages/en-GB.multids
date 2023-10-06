@@ -33,7 +33,6 @@ param: Param
 fsrsparam: [[FSRS algorithm|https://github.com/open-spaced-repetition/fsrs.js#usage]]
 exportdelete: Export or delete
 getshared: Get Shared
-getsharedurl: https://oflg.github.io/Tidme/manual/#Get Shared
 createdeck: Create Deck
 importfile: Import File
 startstudy: Start Study
