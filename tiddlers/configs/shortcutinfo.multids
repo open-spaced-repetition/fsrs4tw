@@ -7,5 +7,6 @@ tidme-hard: {{$:/language/tidme/hard}}
 tidme-good: {{$:/language/tidme/good}}
 tidme-easy: {{$:/language/tidme/easy}}
 tidme-next: {{$:/language/tidme/next}}
+tidme-type: {{$:/language/tidme/type}}
 tidme-cloze: {{$:/language/tidme/cloze}}
 tidme-select: {{$:/language/tidme/select}}

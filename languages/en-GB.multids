@@ -43,6 +43,8 @@ good: Good
 easy: Easy
 next: Next
 stopstudy: Stop Study
+type: Type Question
+typetip: Insert edit of Type Question(see manual for usage)
 cloze: Cloze Question
 clozetip: Set the selected text as cloze of Cloze Question(see manual for usage)
 select: Select Question

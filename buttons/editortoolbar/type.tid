@@ -1,0 +1,14 @@
+caption: {{$:/language/tidme/type}}
+condition: [<targetTiddler>]
+description: {{$:/language/tidme/typetip}}
+icon: $:/plugins/tidme/fsrs4tw/icons/type
+shortcuts: ((tidme-type))
+tags: $:/tags/EditorToolbar
+title: $:/plugins/tidme/fsrs4tw/buttons/editortoolbar/type
+list-before: $:/plugins/tidme/fsrs4tw/buttons/editortoolbar/cloze
+
+<$action-sendmessage
+    $message="tm-edit-text-operation"
+    $param="insert-text"
+    text="<<T >>"
+/>

@@ -7,5 +7,6 @@ tidme-hard: 2
 tidme-good: 3
 tidme-easy: 4
 tidme-next: n
+tidme-type: alt-t
 tidme-cloze: alt-c
 tidme-select: alt-s
