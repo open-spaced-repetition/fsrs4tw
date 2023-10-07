@@ -46,7 +46,7 @@ code-body: yes
                 $message="tm-close-tiddler"
             />
             <$action-deletetiddler
-                $tiddler="$:/temp/tidme/study/question"
+                $tiddler="$:/temp/tidme/study/input"
             />
             <div style="font-size:8px;color:grey;">
                 <$text text={{{ [<card>jsonget[due]format:relativedate[]] }}}/>
@@ -74,11 +74,11 @@ code-body: yes
             $to=<<nextTiddler>>
             $scroll="yes"
         />
-        <$action-sendmessage
+        <!-- <$action-sendmessage
             $message="tm-focus-selector"
             $param=`[data-tiddler-title="$(nextTiddler)$"] .tmc-hideinput input`
             preventScroll="true"
-        />
+        /> -->
     </$reveal>
     <$reveal
         default=<<nextTiddler>>

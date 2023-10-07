@@ -49,7 +49,7 @@ code-body: yes
                         tag="input"
                         tiddler={{{ [<deckTiddler>addsuffix[/study]] }}}
                         placeholder=<<deckCaption>>
-                        focus="yes"
+                        focus={{{ [all[shadows+tiddlers]is[draft]] [all[shadows+tiddlers]prefix[$:/temp]suffix[/input]get[text]!match[]] +[then[no]else[yes]] }}}
                     />
                 </$keyboard>
                 </$keyboard>

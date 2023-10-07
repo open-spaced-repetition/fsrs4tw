@@ -14,12 +14,12 @@ tags: $:/tags/Global
         class="tc-btn-invisible"
     >
         <$action-setfield
-            $tiddler="$:/temp/tidme/study/question"
+            $tiddler="$:/temp/tidme/study/input"
             $index=<<__id__>>
-            $value={{{ [[$:/temp/tidme/study/question]getindex<__id__>match[show]then[]else[show]] }}}
+            $value={{{ [[$:/temp/tidme/study/input]getindex<__id__>match[show]then[]else[show]] }}}
         />
         <$reveal
-            default={{{ [[$:/temp/tidme/study/question]getindex<__id__>] }}}
+            default={{{ [[$:/temp/tidme/study/input]getindex<__id__>] }}}
             type="match"
             text="show"
             animate="yes"
@@ -27,7 +27,7 @@ tags: $:/tags/Global
             __$hide$__
         </$reveal>
         <$reveal
-            default={{{ [[$:/temp/tidme/study/question]getindex<__id__>] }}}
+            default={{{ [[$:/temp/tidme/study/input]getindex<__id__>] }}}
             type="nomatch"
             text="show"
             animate="yes"
@@ -54,46 +54,15 @@ tags: $:/tags/Global
     animate="yes"
 >
     <$edit
-        tiddler="$:/temp/tidme/study/question"
+        tiddler="$:/temp/tidme/study/input"
         placeholder={{$:/language/EditTemplate/Body/Placeholder}}
         minHeight={{$:/themes/tiddlywiki/vanilla/metrics/fontsize}}
         class="tc-edit-texteditor tc-edit-texteditor-body"
-        focus="yes"
     >
-        <!-- <$set
-            value=<<currentTiddler>>
-            name="targetTiddler"
-        >
-            <$list
-                filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!is[draft]]"
-            >
-                <$reveal
-                    type="nomatch"
-                    state=<<config-visibility-title>>
-                    text="hide"
-                    class="tc-text-editor-toolbar-item-wrapper"
-                >
-                    <$transclude
-                        tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
-                        mode="inline"
-                    />
-                </$reveal>
-            </$list>
-            <$list
-                filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!is[draft]]"
-            >
-                <$list
-                    filter={{!!condition}}
-                    variable="list-condition"
-                >
-                    <$transclude/>
-                </$list>
-            </$list>
-        </$set> -->
     </$edit>
 </$reveal>
 <$reveal
-    default={{$:/temp/tidme/study/question}}
+    default={{$:/temp/tidme/study/input}}
     type="nomatch"
     text=""
     animate="yes"
@@ -105,7 +74,7 @@ tags: $:/tags/Global
         animate="yes"
     >
         <$diff-text
-            source={{$:/temp/tidme/study/question}}
+            source={{$:/temp/tidme/study/input}}
             dest={{!!$field$}}
         />
     </$reveal>
@@ -135,7 +104,7 @@ tags: $:/tags/Global
                 text="1"
             >
                 <$radio
-                    tiddler="$:/temp/tidme/study/question"
+                    tiddler="$:/temp/tidme/study/input"
                     index=<<selectid>>
                     value=<<optionid>>
                     default=""
@@ -149,7 +118,7 @@ tags: $:/tags/Global
                 text="1"
             >
                 <$checkbox
-                    tiddler="$:/temp/tidme/study/question"
+                    tiddler="$:/temp/tidme/study/input"
                     index=<<selectid>>
                     checked=<<optionid>>
                     unchecked=""
@@ -171,7 +140,7 @@ tags: $:/tags/Global
                 class="tc-btn-invisible"
             >
                 <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/question]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
+                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
                     type="match"
                     text="00"
                     animate="yes"
@@ -179,7 +148,7 @@ tags: $:/tags/Global
                     {{$:/core/images/blank}}
                 </$reveal>
                 <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/question]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
+                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
                     type="match"
                     text="01"
                     animate="yes"
@@ -187,7 +156,7 @@ tags: $:/tags/Global
                     {{$:/core/images/close-button}}
                 </$reveal>
                 <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/question]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
+                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
                     type="match"
                     text="10"
                     animate="yes"
@@ -195,7 +164,7 @@ tags: $:/tags/Global
                     {{$:/core/images/warning}}
                 </$reveal>
                 <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/question]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
+                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
                     type="match"
                     text="11"
                     animate="yes"
