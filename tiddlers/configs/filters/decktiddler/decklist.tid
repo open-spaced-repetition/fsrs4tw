@@ -1,0 +1,5 @@
+title: $:/config/Tidme/Filters/decklist
+tags: $:/tags/TidmeFilter/DeckTiddler
+list-before:
+
+[<currentTiddler>listed[]removesuffix[/study]tag[$:/tags/TidmeDeck]!is[blank]]

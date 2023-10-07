@@ -33,9 +33,9 @@ code-body: yes
 
         <br>{{!!description}}<br>
         <$let
-            filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}]`
-            filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}]`
-            filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}]`
+            filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}]`
+            filter_due=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_due}]`
+            filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}]`
             filter_unfold=`[subfilter{$(deckTiddler)$!!card_unfold}]`
             filter_random=`[subfilter<filter_due>] [subfilter<filter_new>] +[sortrandom[]]`
             due-new=`$(filter_learn)$ $(filter_due)$ $(filter_new)$`
@@ -58,7 +58,7 @@ code-body: yes
                         <td align="center" style="color:blue"><$count filter="[subfilter<filter_new>]"/></td>
                     </tr>
                 </div>
-                <div style="display:flex;align-items:center;" >
+                <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-around;" >
                     <$list
                         filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Study]!has[draft.of]]"
                         template="$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button"

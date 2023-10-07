@@ -3,9 +3,9 @@ code-body: yes
 
 <$let
     deckTiddler=<<currentTiddler>>
-    filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}sort[due]]`
-    filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_due}]`
-    filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_new}]`
+    filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}sort[due]]`
+    filter_due=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_due}subfilter{$(deckTiddler)$!!order_due}]`
+    filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}subfilter{$(deckTiddler)$!!order_new}]`
 >
     <div class="tmc-tr">
         <div style="flex:0 1 40%;display: flex; justify-content:flex-start;">
@@ -18,7 +18,7 @@ code-body: yes
                 >
                     <<deckCaption>>
                     <$list
-                        filter="[<deckTiddler>addsuffix[/log/study]has[list]] :filter[list<currentTiddler>has[title]] -[<deckTiddler>addsuffix[/log/study]!has[list]]"
+                        filter="[<deckTiddler>addsuffix[/study]has[title]]"
                         variable="ignore"
                     >
                         <$button

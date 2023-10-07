@@ -1,0 +1,5 @@
+title: $:/config/Tidme/Filters/decklearn
+tags: $:/tags/TidmeFilter/DeckTiddler
+list-after: $:/config/Tidme/Filters/decklist
+
+[all[shadows+tiddlers]removesuffix[/study]tag[$:/tags/TidmeDeck]] :filter[subfilter{!!card}subfilter{!!state_learn}match<..currentTiddler>]

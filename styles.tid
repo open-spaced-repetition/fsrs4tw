@@ -80,7 +80,6 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     vertical-align: middle;
 }
 
-
 .tmc-file-input-wrapper input[type=file] {
     position: absolute;
     top: 0;
@@ -108,12 +107,12 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
 }
 
-.hideinput span{
+.tmc-hideinput span{
     color:grey;
     font-size:10px;
 }
 
-.hideinput input{
+.tmc-hideinput input{
     display: block;
     outline: none;
     border: none;

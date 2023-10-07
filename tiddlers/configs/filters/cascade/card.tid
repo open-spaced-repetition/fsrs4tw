@@ -1,0 +1,7 @@
+code-body: yes
+list-before: $:/config/StoryTiddlerTemplateFilters/default
+list-after: $:/config/StoryTiddlerTemplateFilters/draft
+tags: $:/tags/StoryTiddlerTemplateFilter
+title: $:/config/Tidme/StoryTiddlerTemplateFilters/card
+
+[subfilter{$:/config/Tidme/Filters/decktiddler}then[$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tiddler]]

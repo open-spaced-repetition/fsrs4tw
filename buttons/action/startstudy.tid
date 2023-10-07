@@ -1,6 +1,6 @@
 title: $:/plugins/tidme/fsrs4tw/buttons/action/startstudy
 tags: $:/tags/TidmeDeck/Study
-condition: [<deckTiddler>addsuffix[/log/study]has[list]] :filter[list<currentTiddler>!has[title]] [<deckTiddler>addsuffix[/log/study]!has[list]] [<studyTiddler>!match[]] +[first[]]
+condition: [<deckTiddler>]
 button-classes: tc-tiddlylink
 code-body: yes
 
@@ -11,6 +11,7 @@ code-body: yes
 </span>
 <$list
     filter="[<studyTiddler>!is[blank]]"
+    variable="studyTiddler"
 >
     <$list
         filter="[<rating>match[Next]then[Easy]else<rating>!is[blank]]"
@@ -42,7 +43,7 @@ code-body: yes
                 $timestamp={{$:/config/TimestampDisable}}
             />
             <$action-sendmessage
-                    $message="tm-close-tiddler"
+                $message="tm-close-tiddler"
             />
             <$action-deletetiddler
                 $tiddler="$:/temp/tidme/study/question"
@@ -53,30 +54,55 @@ code-body: yes
         </$let>
     </$list>
 </$list>
-<$list
-    filter="[subfilter<filter_queue>first[]]"
-    variable="nextTiddler"
+<$let
+    nextTiddler={{{ [subfilter<filter_queue>first[]] }}}
 >
     <$action-setfield
-        $tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}}
+        $tiddler={{{ [<deckTiddler>addsuffix[/study]] }}}
         list={{{ [<nextTiddler>format:titlelist[]] }}}
     />
-    <$action-setfield
-        $tiddler={{{ [<nextTiddler>addprefix[$:/state/folded/]] }}}
-        text={{{ [subfilter<filter_unfold>match<nextTiddler>then[show]else[hide]] }}}
-    />
-    <$action-navigate
-        $to=<<nextTiddler>>
-        $scroll="yes"
-    />
+    <$reveal
+        default=<<nextTiddler>>
+        type="nomatch"
+        text=""
+    >
+        <$action-setfield
+            $tiddler={{{ [<nextTiddler>addprefix[$:/state/folded/]] }}}
+            text={{{ [subfilter<filter_unfold>match<nextTiddler>then[show]else[hide]] }}}
+        />
+        <$action-navigate
+            $to=<<nextTiddler>>
+            $scroll="yes"
+        />
+        <$action-sendmessage
+            $message="tm-focus-selector"
+            $param=`[data-tiddler-title="$(nextTiddler)$"] .tmc-hideinput input`
+            preventScroll="true"
+        />
+    </$reveal>
     <$reveal
         default=<<nextTiddler>>
         type="match"
         text=""
     >
-        <$action-sendmessage $message="tm-confetti-launch"/>
-        <$action-sendmessage $message="tm-confetti-launch" originY=0.6 spread=70 delay=300/>
-        <$action-sendmessage $message="tm-confetti-launch" originY=0.55 spread=30 delay=600/>
-        <$action-sendmessage $message="tm-notify" $param="$:/plugins/tidme/fsrs4tw/notify/congratulation"/>
+        <$action-sendmessage
+            $message="tm-confetti-launch"
+        />
+        <$action-sendmessage
+            $message="tm-confetti-launch"
+            originY=0.6
+            spread=70
+            delay=300
+        />
+        <$action-sendmessage
+            $message="tm-confetti-launch"
+            originY=0.55
+            spread=30
+            delay=600
+        />
+        <$action-sendmessage
+            $message="tm-notify"
+            $param="$:/plugins/tidme/fsrs4tw/notify/congratulation"
+        />
     </$reveal>
-</$list>
+</$let>

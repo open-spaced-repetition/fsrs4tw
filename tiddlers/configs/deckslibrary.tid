@@ -1,6 +1,6 @@
 caption: {{$:/language/tidme/deckslibrary}}
 tags: $:/tags/PluginLibrary
-title: $:/config/Deckslibrary
+title: $:/config/Tidme/Libraries/decks
 url: https://oflg.github.io/Tidme-decks/library/
 
 {{$:/language/tidme/deckslibrarytip}}

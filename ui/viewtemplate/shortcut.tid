@@ -23,67 +23,50 @@ code-body: yes
 \end
 
 <$list
-    filter="[<currentTiddler>listed[]removesuffix[/log/study]tag[$:/tags/TidmeDeck]first[]]"
-    variable="deckTiddler"
+    filter="[<studyTiddler>!is[blank]]"
+    variable
 >
     <div class=`${ [<currentTiddler>has[caption]then[tmc-tiddler-empty]] }$`/>
-    <$let
-        studyTiddler=<<currentTiddler>>
-        p={{{ [<deckTiddler>get[p]] }}}
-        fsrs_json={{{ [<studyTiddler>fsrs<p>] }}}
-        leech_threshold={{{ [<deckTiddler>get[leech_threshold]] }}}
-        leech_action={{{ [<deckTiddler>get[leech_action]] }}}
-        filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}sort[due]]`
-        filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_due}]`
-        filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_new}]`
-        filter_unfold=`[subfilter{$(deckTiddler)$!!card_unfold}]`
-        filter_random=`[subfilter<filter_due>] [subfilter<filter_new>] +[sortrandom[]]`
-        due-new=`$(filter_learn)$ $(filter_due)$ $(filter_new)$`
-        new-due=`$(filter_learn)$ $(filter_new)$ $(filter_due)$`
-        random=`$(filter_learn)$ [subfilter<filter_random>]`
-        filter_queue=`${ [<deckTiddler>get[order]match[new-due]then<new-due>] [<deckTiddler>get[order]match[random]then<random>] ~[<due-new>] }$`
+    <$wikify
+        name="deckCaption"
+        text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
+        mode="inline"
+        output="text"
     >
-        <$wikify
-            name="deckCaption"
-            text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
-            mode="inline"
-            output="text"
-        >
-            <center class="hideinput">
-                <$list
-                    filter="[{$:/info/browser/is/mobile}!match[yes]]"
-                    variable="ignore"
-                >
-                    <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
-                    <$keyboard key="((tidme-fold))" actions=<<foldaction>>>
-                    <$keyboard key="((tidme-again))" actions=<<ratingaction Again>>>
-                    <$keyboard key="((tidme-hard))" actions=<<ratingaction Hard>>>
-                    <$keyboard key="((tidme-good))" actions=<<ratingaction Good>>>
-                    <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>>>
-                    <$keyboard key="((tidme-next))" actions=<<ratingaction Next>>>
-                        <$edit-text
-                            tag="input"
-                            tiddler={{{ [<deckTiddler>addsuffix[/log/study]] }}}
-                            focus={{{ [{$:/temp/tidme/study/question}then[no]else[yes]] }}}
-                            placeholder=<<deckCaption>>
-                        />
-                    </$keyboard>
-                    </$keyboard>
-                    </$keyboard>
-                    </$keyboard>
-                    </$keyboard>
-                    </$keyboard>
-                    </$keyboard>
-                </$list>
-                <$list
-                    filter="[{$:/info/browser/is/mobile}match[yes]]"
-                    variable="ignore"
-                >
-                    <span>
-                        <<deckCaption>>
-                    </span>
-                </$list>
-            </center>
-        </$wikify>
-    </$let>
+        <div class="tmc-hideinput">
+            <$list
+                filter="[{$:/info/browser/is/mobile}!match[yes]]"
+                variable="ignore"
+            >
+                <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
+                <$keyboard key="((tidme-fold))" actions=<<foldaction>> >
+                <$keyboard key="((tidme-again))" actions=<<ratingaction Again>> >
+                <$keyboard key="((tidme-hard))" actions=<<ratingaction Hard>> >
+                <$keyboard key="((tidme-good))" actions=<<ratingaction Good>> >
+                <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
+                <$keyboard key="((tidme-next))" actions=<<ratingaction Next>> >
+                    <$edit-text
+                        tag="input"
+                        tiddler={{{ [<deckTiddler>addsuffix[/study]] }}}
+                        placeholder=<<deckCaption>>
+                        focus="yes"
+                    />
+                </$keyboard>
+                </$keyboard>
+                </$keyboard>
+                </$keyboard>
+                </$keyboard>
+                </$keyboard>
+                </$keyboard>
+            </$list>
+            <$list
+                filter="[{$:/info/browser/is/mobile}match[yes]]"
+                variable="ignore"
+            >
+                <span>
+                    <<deckCaption>>
+                </span>
+            </$list>
+        </div>
+    </$wikify>
 </$list>

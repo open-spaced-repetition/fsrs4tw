@@ -3,9 +3,11 @@ tags: $:/tags/ViewTemplate
 list-after: $:/core/ui/ViewTemplate/title
 code-body: yes
 
+\whitespace trim
+
 <$list
-    filter="[<currentTiddler>listed[]removesuffix[/log/study]tag[$:/tags/TidmeDeck]first[]]"
-    variable="deckTiddler"
+    filter="[<studyTiddler>!is[blank]]"
+    variable="studyTiddler"
 >
     <div class="tc-reveal">
         <$reveal

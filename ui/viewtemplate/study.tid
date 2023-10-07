@@ -3,73 +3,77 @@ tags: $:/tags/ViewTemplate
 list-after:
 code-body: yes
 
+\whitespace trim
+
+\define foldaction()
+<$action-setfield
+    $tiddler={{{ [<studyTiddler>addprefix[$:/state/folded/]] }}}
+    text={{{ [<studyTiddler>addprefix[$:/state/folded/]get[text]match[hide]then[show]else[hide]] }}}
+/>
+\end
+
+\define ratingaction(rating)
 <$list
-    filter="[<currentTiddler>listed[]removesuffix[/log/study]tag[$:/tags/TidmeDeck]first[]]"
-    variable="deckTiddler"
+    filter="$rating$"
+    variable="rating"
 >
-    <$let
-        studyTiddler=<<currentTiddler>>
-        p={{{ [<deckTiddler>get[p]] }}}
-        fsrs_json={{{ [<studyTiddler>fsrs<p>] }}}
-        leech_threshold={{{ [<deckTiddler>get[leech_threshold]] }}}
-        leech_action={{{ [<deckTiddler>get[leech_action]] }}}
-        filter_learn=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_learn}!subfilter{$(deckTiddler)$!!card_exclude}sort[due]]`
-        filter_due=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_due}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_due}]`
-        filter_new=`[subfilter{$(deckTiddler)$!!card}subfilter{$(deckTiddler)$!!state_new}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!order_new}]`
-        filter_unfold=`[subfilter{$(deckTiddler)$!!card_unfold}]`
-        filter_random=`[subfilter<filter_due>] [subfilter<filter_new>] +[sortrandom[]]`
-        due-new=`$(filter_learn)$ $(filter_due)$ $(filter_new)$`
-        new-due=`$(filter_learn)$ $(filter_new)$ $(filter_due)$`
-        random=`$(filter_learn)$ [subfilter<filter_random>]`
-        filter_queue=`${ [<deckTiddler>get[order]match[new-due]then<new-due>] [<deckTiddler>get[order]match[random]then<random>] ~[<due-new>] }$`
+    <$transclude
+    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/startstudy"
+    mode="inline"
+    />
+</$list>
+\end
+
+<$list
+    filter="[<studyTiddler>!is[blank]]"
+    variable="studyTiddler"
+>
+    <br>
+    <center style="font-size:10px;">
+        <span style=`color:red;${ [subfilter<filter_learn>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_learn>]"/></span>
+        +
+        <span style=`color:green;${ [subfilter<filter_due>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_due>]"/></span>
+        +
+        <span style=`color:blue;${ [subfilter<filter_new>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_new>]"/></span>
+    </center>
+    <$reveal
+        tag="div"
+        type="nomatch"
+        stateTitle=<<folded-state>>
+        text="hide"
+        default="show"
+        retain="yes"
+        animate="yes"
     >
-        <br>
-        <center style="font-size:10px;">
-            <span style=`color:red;${ [subfilter<filter_learn>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_learn>]"/></span>
-            +
-            <span style=`color:green;${ [subfilter<filter_due>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_due>]"/></span>
-            +
-            <span style=`color:blue;${ [subfilter<filter_new>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_new>]"/></span>
-        </center>
-        <$reveal
-            tag="div"
-            type="nomatch"
-            stateTitle=<<folded-state>>
-            text="hide"
-            default="show"
-            retain="yes"
-            animate="yes"
-        >
-            <$fieldmangler>
-                <$reveal
-                    default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
-                    type="nomatch"
-                    text=""
-                >
-                    <div style="display:flex;justify-content:center;align-items: flex-end;">
-                        <$list
-                            filter="Next"
-                            variable="rating"
-                        >
-                            {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
-                        </$list>
-                    </div>
-                </$reveal>
-                <$reveal
-                    default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
-                    type="match"
-                    text=""
-                >
-                    <div style="display:flex;justify-content: space-between;flex-wrap: nowrap;align-items: flex-end;">
-                        <$list
-                            filter="Again Hard Good Easy"
-                            variable="rating"
-                        >
-                            {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
-                        </$list>
-                    </div>
-                </$reveal>
-            </$fieldmangler>
-        </$reveal>
-    </$let>
+        <$fieldmangler>
+            <$reveal
+                default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
+                type="nomatch"
+                text=""
+            >
+                <div style="display:flex;justify-content:center;align-items: flex-end;">
+                    <$list
+                        filter="Next"
+                        variable="rating"
+                    >
+                        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
+                    </$list>
+                </div>
+            </$reveal>
+            <$reveal
+                default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
+                type="match"
+                text=""
+            >
+                <div style="display:flex;justify-content: space-between;flex-wrap: nowrap;align-items: flex-end;">
+                    <$list
+                        filter="Again Hard Good Easy"
+                        variable="rating"
+                    >
+                        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
+                    </$list>
+                </div>
+            </$reveal>
+        </$fieldmangler>
+    </$reveal>
 </$list>

@@ -42,7 +42,7 @@ code-body: yes
 \end
 
 \define disablededit(field)
-<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}} disabled={{{ [{$:/config/Tidme/expert}match[yes]then[no]else[yes]] }}}/>
+<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}} disabled={{{ [{$:/config/Tidme/Options/expert}match[yes]then[no]else[yes]] }}}/>
 \end
 
 |tc-max-width tc-edit-max-width|k
@@ -51,14 +51,14 @@ code-body: yes
 |{{$:/language/tidme/description}}|<<textfield description>>|
 
 <$reveal
-    default={{$:/config/Tidme/advanced}}
+    default={{$:/config/Tidme/Options/advanced}}
     type="nomatch"
     text="yes"
     animate="yes"
 >
     <center>
         <$button
-            set="$:/config/Tidme/advanced"
+            set="$:/config/Tidme/Options/advanced"
             setTo="yes"
             class="tc-btn-invisible"
         >
@@ -68,7 +68,7 @@ code-body: yes
 </$reveal>
 
 <$reveal
-    default={{$:/config/Tidme/advanced}}
+    default={{$:/config/Tidme/Options/advanced}}
     type="match"
     text="yes"
     animate="yes"
@@ -76,7 +76,7 @@ code-body: yes
 
     <center>
         <$button
-            set="$:/config/Tidme/advanced"
+            set="$:/config/Tidme/Options/advanced"
             setTo="no"
             class="tc-btn-invisible"
         >
@@ -112,7 +112,7 @@ code-body: yes
 
 !! {{$:/language/tidme/expert}}
 
-<$checkbox tiddler="$:/config/Tidme/expert" field="text" checked="yes" unchecked="no" default="no"> @@color:red;font-size:10px;{{$:/language/tidme/experttip}}@@ </$checkbox>
+<$checkbox tiddler="$:/config/Tidme/Options/expert" field="text" checked="yes" unchecked="no" default="no"> @@color:red;font-size:10px;{{$:/language/tidme/experttip}}@@ </$checkbox>
 
 !!! {{$:/language/tidme/cardstatefilter}}
 
