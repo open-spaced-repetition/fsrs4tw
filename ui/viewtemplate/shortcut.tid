@@ -24,7 +24,7 @@ code-body: yes
 
 <$list
     filter="[<studyTiddler>!is[blank]]"
-    variable
+    variable="studyTiddler"
 >
     <div class=`${ [<currentTiddler>has[caption]then[tmc-tiddler-empty]] }$`/>
     <$wikify
@@ -62,9 +62,9 @@ code-body: yes
                 filter="[{$:/info/browser/is/mobile}match[yes]]"
                 variable="ignore"
             >
-                <span>
+                <center>
                     <<deckCaption>>
-                </span>
+                </center>
             </$list>
         </div>
     </$wikify>

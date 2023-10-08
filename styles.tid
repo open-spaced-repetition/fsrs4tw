@@ -107,7 +107,7 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
 }
 
-.tmc-hideinput span{
+.tmc-hideinput center{
     color:grey;
     font-size:10px;
 }

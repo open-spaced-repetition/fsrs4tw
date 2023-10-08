@@ -11,7 +11,6 @@ code-body: yes
 </span>
 <$list
     filter="[<studyTiddler>!is[blank]]"
-    variable="studyTiddler"
 >
     <$list
         filter="[<rating>match[Next]then[Easy]else<rating>!is[blank]]"
