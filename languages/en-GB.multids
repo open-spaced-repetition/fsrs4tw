@@ -3,7 +3,7 @@ title: $:/language/tidme/
 tidme: Tidme
 tidmetip:  Lifelong knowledge, deep in mind
 default: Default
-descriptioncontent: <center>The default deck, also a template for creating deck.</center>
+descriptioncontent: <center>This is a non-customisable default deck, which can be customised with ''{{$:/language/tidme/createdeck}}''.</center>
 deck: Deck
 learn: Learn
 due: Due

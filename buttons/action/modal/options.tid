@@ -1,5 +1,5 @@
 title: $:/plugins/tidme/fsrs4tw/buttons/action/modal/options
-footer: <div style="display:flex;width:100%;justify-content:space-between;"><$button message="tm-close-tiddler" class="tmc-btn-dirty"><$action-deletetiddler $tiddler=<<deckTiddler>>/>Delete</$button><div><$button message="tm-close-tiddler"><$action-deletetiddler $tiddler="$:/temp/tidme/options"/>Cancle</$button>  <$button message="tm-close-tiddler" class="tmc-btn-primary"><$action-createtiddler $basetitle=<<deckTiddler>> $template="$:/temp/tidme/options" $overwrite="yes"/>Save</$button></div></div>
+footer: <div style="display:flex;width:100%;justify-content:space-between;"><$button message="tm-close-tiddler" class="tmc-btn-dirty"><$action-deletetiddler $tiddler=<<deckTiddler>>/>{{$:/language/Buttons/Delete/Caption}}</$button><div><$button message="tm-close-tiddler"><$action-deletetiddler $tiddler="$:/temp/tidme/options"/>{{$:/language/Buttons/Cancel/Caption}}</$button>  <$button message="tm-close-tiddler" class="tmc-btn-primary"><$action-createtiddler $basetitle=<<deckTiddler>> $template="$:/temp/tidme/options" $overwrite="yes"/>{{$:/language/Buttons/Save/Caption}}</$button></div></div>
 subtitle: {{$:/language/tidme/options}}: <$text text=<<deckTiddler>> />
 code-body: yes
 

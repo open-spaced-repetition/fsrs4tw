@@ -40,18 +40,7 @@ icon: $:/plugins/tidme/fsrs4tw/icon
                 $template="$:/Deck/default"
                 caption=""
                 description=""
-            >
-                <$let
-                    deckTiddler=<<createTiddler-title>>
-                >
-                    {{$:/plugins/tidme/fsrs4tw/buttons/action/options}}
-                    <$action-sendmessage
-                        $message="tm-modal"
-                        $param={{$:/plugins/tidme/fsrs4tw/buttons/action/options!!modal}}
-                        deckTiddler=<<deckTiddler>>
-                    />
-                </$let>
-            </$action-createtiddler>
+            />
             {{$:/language/tidme/createdeck}}
         </$button>
         <$button
