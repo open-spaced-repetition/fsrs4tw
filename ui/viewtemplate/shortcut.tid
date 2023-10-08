@@ -47,8 +47,10 @@ code-body: yes
                 <$keyboard key="((tidme-next))" actions=<<ratingaction Next>> >
                     <$edit-text
                         tag="input"
-                        tiddler={{{ [<deckTiddler>addsuffix[/study]] }}}
+                        tiddler="$:/temp/tidme/study/input"
+                        field="shortcut"
                         placeholder=<<deckCaption>>
+                        focus="yes"
                     />
                 </$keyboard>
                 </$keyboard>

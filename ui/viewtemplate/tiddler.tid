@@ -5,9 +5,7 @@ title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tiddler
 
 <$let
     deckTiddler={{{ [subfilter{$:/config/Tidme/Filters/decktiddler}first[]] }}}
-    p={{{ [<deckTiddler>get[p]] }}}
     studyTiddler=<<currentTiddler>>
-    fsrs_json={{{ [<studyTiddler>fsrs<p>] }}}
     leech_threshold={{{ [<deckTiddler>get[leech_threshold]] }}}
     leech_action={{{ [<deckTiddler>get[leech_action]] }}}
     filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}sort[due]]`
@@ -20,15 +18,7 @@ title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tiddler
     random=`$(filter_learn)$ [subfilter<filter_random>]`
     filter_queue=`${ [<deckTiddler>get[order]match[new-due]then<new-due>] [<deckTiddler>get[order]match[random]then<random>] ~[<due-new>] }$`
 >
-    <!-- <$navigator
-        story="$:/StoryList"
-        history="$:/HistoryList"
-        openLinkFromInsideRiver="top"
-        openLinkFromOutsideRiver="top"
-        relinkOnRename="yes"
-    > -->
-        <$transclude
-            tiddler={{{ [<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/StoryTiddlerTemplateFilter]![$:/config/Tidme/StoryTiddlerTemplateFilters/card]!is[draft]get[text]] :and[has[title]else[$:/core/ui/ViewTemplate]] }}}
-        />
-    <!-- </$navigator> -->
+    <$transclude
+        tiddler={{{ [<currentTiddler>] :cascade[all[shadows+tiddlers]tag[$:/tags/StoryTiddlerTemplateFilter]![$:/config/Tidme/StoryTiddlerTemplateFilters/card]!is[draft]get[text]] :and[has[title]else[$:/core/ui/ViewTemplate]] }}}
+    />
 </$let>

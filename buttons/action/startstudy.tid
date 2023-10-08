@@ -17,6 +17,8 @@ code-body: yes
         variable="rating"
     >
         <$let
+            p={{{ [<deckTiddler>get[p]] }}}
+            fsrs_json={{{ [<studyTiddler>fsrs<p>] }}}
             card={{{ [<fsrs_json>jsonget[Rating],<rating>] :map[<fsrs_json>jsonextract[Cards],<currentTiddler>,[card]] }}}
             review_log={{{ [<fsrs_json>jsonget[Rating],<rating>] :map[<fsrs_json>jsonextract[Cards],<currentTiddler>,[review_log]] }}}
         >
@@ -73,11 +75,11 @@ code-body: yes
             $to=<<nextTiddler>>
             $scroll="yes"
         />
-        <!-- <$action-sendmessage
+        <$action-sendmessage
             $message="tm-focus-selector"
             $param=`[data-tiddler-title="$(nextTiddler)$"] .tmc-hideinput input`
             preventScroll="true"
-        /> -->
+        />
     </$reveal>
     <$reveal
         default=<<nextTiddler>>
