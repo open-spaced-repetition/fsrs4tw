@@ -18,7 +18,7 @@ code-body: yes
     variable="rating"
 >
     <$transclude
-    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/startstudy"
+    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/repeat"
     mode="inline"
     />
 </$list>
@@ -28,7 +28,7 @@ code-body: yes
     filter="[<studyTiddler>!is[blank]]"
     variable="studyTiddler"
 >
-    <br>
+    <br/>
     <center style="font-size:10px;">
         <span style=`color:red;${ [subfilter<filter_learn>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_learn>]"/></span>
         +
@@ -36,6 +36,7 @@ code-body: yes
         +
         <span style=`color:blue;${ [subfilter<filter_new>match<studyTiddler>then[text-decoration: underline;]] }$`><$count filter="[subfilter<filter_new>]"/></span>
     </center>
+    <br/>
     <$reveal
         tag="div"
         type="nomatch"
@@ -51,12 +52,12 @@ code-body: yes
                 type="nomatch"
                 text=""
             >
-                <div style="display:flex;justify-content:center;align-items: flex-end;">
+                <div class="tmc-unfold-wrapper">
                     <$list
-                        filter="Next"
+                        filter="Retain"
                         variable="rating"
                     >
-                        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
+                        {{$:/plugins/tidme/fsrs4tw/buttons/action/repeat||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
                     </$list>
                 </div>
             </$reveal>
@@ -65,12 +66,12 @@ code-body: yes
                 type="match"
                 text=""
             >
-                <div style="display:flex;justify-content: space-between;flex-wrap: nowrap;align-items: flex-end;">
+                <div class="tmc-reating-wrapper">
                     <$list
                         filter="Again Hard Good Easy"
                         variable="rating"
                     >
-                        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
+                        {{$:/plugins/tidme/fsrs4tw/buttons/action/repeat||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
                     </$list>
                 </div>
             </$reveal>

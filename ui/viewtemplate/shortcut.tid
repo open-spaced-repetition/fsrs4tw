@@ -16,7 +16,7 @@ code-body: yes
     variable="rating"
 >
     <$transclude
-    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/startstudy"
+    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/repeat"
     mode="inline"
     />
 </$list>
@@ -44,7 +44,7 @@ code-body: yes
                 <$keyboard key="((tidme-hard))" actions=<<ratingaction Hard>> >
                 <$keyboard key="((tidme-good))" actions=<<ratingaction Good>> >
                 <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
-                <$keyboard key="((tidme-next))" actions=<<ratingaction Next>> >
+                <$keyboard key="((tidme-retain))" actions=<<ratingaction Retain>> >
                     <$edit-text
                         tag="input"
                         tiddler="$:/temp/tidme/study/input"
@@ -64,7 +64,7 @@ code-body: yes
                 filter="[{$:/info/browser/is/mobile}match[yes]]"
                 variable="ignore"
             >
-                <center>
+                <center class="tmc-text-sg">
                     <<deckCaption>>
                 </center>
             </$list>

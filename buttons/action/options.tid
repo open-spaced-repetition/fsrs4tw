@@ -4,7 +4,7 @@ list-before:
 icon: $:/core/images/options-button
 modal: $:/plugins/tidme/fsrs4tw/buttons/action/modal/options
 description: {{$:/language/tidme/options}}
-condition: [<deckTiddler>!match[$:/Deck/default]]
+condition: [<deckTiddler>!is[blank]!match[$:/Deck/default]]
 button-classes: tmc-button-hide
 code-body: yes
 

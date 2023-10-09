@@ -3,7 +3,7 @@ title: $:/language/tidme/
 tidme: Tidme
 tidmetip:  Lifelong knowledge, deep in mind
 default: Default
-descriptioncontent: <center>This is a non-customisable default deck, which can be customised with ''{{$:/language/tidme/createdeck}}''.</center>
+defaulttip: <center>This is a non-customisable default deck, which can be customised with ''{{$:/language/tidme/createdeck}}''.</center>
 deck: Deck
 learn: Learn
 due: Due
@@ -34,13 +34,15 @@ fsrsparam: [[FSRS algorithm|https://github.com/open-spaced-repetition/fsrs.js#us
 exportdelete: Export or delete
 getshared: Get Shared
 createdeck: Create Deck
+createdecktip: Creating a new deck using the default deck as a template
 importfile: Import File
 startstudy: Start Study
+next: next
 again: Again
 hard: Hard
 good: Good
 easy: Easy
-next: Next
+retain: Retain
 stopstudy: Stop Study
 type: Type Question
 typetip: Insert edit of Type Question(see manual for usage)

@@ -8,8 +8,10 @@ code-body: yes
     filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}subfilter{$(deckTiddler)$!!order_new}]`
 >
     <div class="tmc-tr">
-        <div style="flex:0 1 40%;display: flex; justify-content:flex-start;">
-            <$link>
+        <div class="tr-deck">
+            <$link
+                tooltip=<<deckTiddler>>
+            >
                 <$wikify
                     name="deckCaption"
                     text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
@@ -30,7 +32,7 @@ code-body: yes
                 </$wikify>
             </$link>
         </div>
-        <div style="flex:0 1 15%; display: flex; justify-content:center;">
+        <div class="tr-study">
             <$let
                 filter_search=<<filter_learn>>
             >
@@ -43,7 +45,7 @@ code-body: yes
                 </$button>
             </$let>
         </div>
-        <div style="flex:0 1 15%; display: flex; justify-content:center;">
+        <div class="tr-study">
             <$let
                 filter_search=<<filter_due>>
             >
@@ -56,7 +58,7 @@ code-body: yes
                 </$button>
             </$let>
         </div>
-        <div style="flex:0 1 15%; display: flex; justify-content:center;">
+        <div class="tr-study">
             <$let
                 filter_search=<<filter_new>>
             >
@@ -69,7 +71,7 @@ code-body: yes
                 </$button>
             </$let>
         </div>
-        <div style="flex:0 1 15%; display: flex; justify-content:flex-end;">
+        <div class="tr-action">
         <$let
             filter_search=`[[$(deckTiddler)$]] [[$(deckTiddler)$]shadowsource[]] [subfilter{$(deckTiddler)$!!card}is[tiddler]] [[$(deckTiddler)$]shadowsource[]plugintiddlers[]is[tiddler]] +[!prefix[$:/plugins/tidme/]]`
         >

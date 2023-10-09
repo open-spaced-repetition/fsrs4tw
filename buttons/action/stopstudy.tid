@@ -9,5 +9,5 @@ code-body: yes
     $tiddler={{{ [<deckTiddler>addsuffix[/study]] }}}
 />
 <$action-deletetiddler
-    $tiddler="$:/temp/tidme/study/input"
+    $filter="[all[shadows+tiddlers]prefix[$:/temp/tidme/]]"
 />

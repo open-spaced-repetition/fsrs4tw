@@ -10,12 +10,31 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     padding-bottom:10px;
 }
 
+.tr-deck{
+    flex:0 1 40%;
+    display: flex;
+    justify-content:flex-start;
+}
+
+.tr-study{
+    flex:0 1 15%;
+    display: flex;
+    justify-content:center;
+}
+
+.tr-action{
+    flex:0 1 15%;
+    display: flex;
+    justify-content:flex-end;
+}
+
 .tmc-tr{
     display:flex;
     justify-content: space-between;
     align-items:center;
     height: 40px;
 }
+
 
 .tmc-showbutton{
     margin: 0 3px !important;
@@ -52,6 +71,19 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     fill: <<colour background>>;
 }
 
+.tmc-unfold-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items: flex-end;
+}
+
+.tmc-reating-wrapper{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
 .tmc-btn-again{
     color: red !important;
 }
@@ -70,7 +102,7 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
 
 .tmc-decks-button-wrapper{
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: baseline;
 }
 
@@ -107,11 +139,6 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     font-size: {{$:/themes/tiddlywiki/vanilla/metrics/bodyfontsize}} !important;
 }
 
-.tmc-hideinput center{
-    color:grey;
-    font-size:10px;
-}
-
 .tmc-hideinput input{
     display: block;
     outline: none;
@@ -119,5 +146,10 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     width:100%;
     text-align:center;
     color:grey;
-    font-size:10px;
+    font-size:9px;
+}
+
+.tmc-text-sg{
+    font-size:9px;
+    color:grey;
 }

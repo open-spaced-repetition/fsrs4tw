@@ -2,19 +2,19 @@ title: $:/Decks
 icon: $:/plugins/tidme/fsrs4tw/icon
 
 <div class="tmc-thead">
-    <div style="flex:0 1 40%;display: flex; justify-content:flex-start;">
+    <div class="tr-deck">
         {{$:/language/tidme/deck}}
     </div>
-    <div style="flex:0 1 15%; display: flex; justify-content:center;">
+    <div class="tr-study">
         {{$:/language/tidme/learn}}
     </div>
     <div style="flex:0 1 15%;display: flex; justify-content:center;">
         {{$:/language/tidme/due}}
     </div>
-    <div style="flex:0 1 15%; display: flex; justify-content:center;">
+    <div class="tr-study">
         {{$:/language/tidme/new}}
     </div>
-    <div style="flex:0 1 15%;display: flex; justify-content:flex-end;">
+    <div class="tr-action">
 
     </div>
 </div>
@@ -22,37 +22,34 @@ icon: $:/plugins/tidme/fsrs4tw/icon
 <<list-tagged-draggable tag:"$:/tags/TidmeDeck" subFilter:"![$:/temp/tidme/options]!has[draft.of]" itemTemplate:"$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tr" storyview:"classic" >>
 
 <div class="tmc-decks-button-wrapper">
-        <$button
-            message="tm-modal"
-            param="$:/core/ui/ControlPanel/Modals/AddPlugins"
-            tooltip={{$:/language/ControlPanel/Plugins/Add/Hint}}
-            style="margin:0 10px"
-            class="tc-btn-invisible tc-tiddlylink"
-        >
-            {{$:/language/tidme/getshared}}
-        </$button>
-        <$button
-            style="margin:0 10px"
-            class="tc-btn-invisible tc-tiddlylink"
-        >
-            <$action-createtiddler
-                $basetitle="$:/Deck/new"
-                $template="$:/Deck/default"
-                caption=""
-                description=""
+    <$button
+        message="tm-modal"
+        param="$:/core/ui/ControlPanel/Modals/AddPlugins"
+        tooltip={{$:/language/ControlPanel/Plugins/Add/Hint}}
+        class="tc-btn-invisible tc-tiddlylink"
+    >
+        {{$:/language/tidme/getshared}}
+    </$button>
+    <$button
+        class="tc-btn-invisible tc-tiddlylink"
+        tooltip={{$:/language/tidme/createdecktip}}
+    >
+        <$action-createtiddler
+            $basetitle="$:/Deck/new"
+            $template="$:/Deck/default"
+            caption=""
+            description=""
+        />
+        {{$:/language/tidme/createdeck}}
+    </$button>
+    <$button
+        class="tc-btn-invisible tc-tiddlylink"
+    >
+        <div class="tmc-file-input-wrapper">
+            <$browse
+                tooltip={{$:/language/Buttons/Import/Hint}}
             />
-            {{$:/language/tidme/createdeck}}
-        </$button>
-        <$button
-            style="margin:0 10px"
-            class="tc-btn-invisible tc-tiddlylink"
-        >
-            <div class="tmc-file-input-wrapper">
-                <$browse
-                    tooltip={{$:/language/Buttons/Import/Hint}}
-                />
-                {{$:/language/tidme/importfile}}
-            </div>
-        </$button>
-
+            {{$:/language/tidme/importfile}}
+        </div>
+    </$button>
 </div>

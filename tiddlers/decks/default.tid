@@ -1,7 +1,7 @@
 title: $:/Deck/default
 tags: $:/tags/TidmeDeck
 caption: {{$:/language/tidme/default}}
-description: {{$:/language/tidme/descriptioncontent}}
+description: {{$:/language/tidme/defaulttip}}
 card: [all[shadows+tiddlers]tag[?]]
 card_unfold: [tag[.]]
 card_exclude: [tag[!]]
