@@ -15,7 +15,7 @@ title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/suspend
             aria-label={{$:/language/tidme/suspend}}
             class=<<tv-config-toolbar-class>>
         >
-            {{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}
+            <<suspend_action>>
             <$list
                 filter="[<tv-config-toolbar-icons>match[yes]]"
             >

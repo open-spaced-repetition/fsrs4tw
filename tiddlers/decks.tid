@@ -2,19 +2,19 @@ title: $:/Decks
 icon: $:/plugins/tidme/fsrs4tw/icon
 
 <div class="tmc-thead">
-    <div class="tr-deck">
+    <div class="tmc-tr-deck">
         {{$:/language/tidme/deck}}
     </div>
-    <div class="tr-study">
+    <div class="tmc-tr-study">
         {{$:/language/tidme/learn}}
     </div>
-    <div style="flex:0 1 15%;display: flex; justify-content:center;">
+    <div style="mc-tr-study">
         {{$:/language/tidme/due}}
     </div>
-    <div class="tr-study">
+    <div class="tmc-tr-study">
         {{$:/language/tidme/new}}
     </div>
-    <div class="tr-action">
+    <div class="tmc-tr-action">
 
     </div>
 </div>

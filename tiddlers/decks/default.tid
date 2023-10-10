@@ -9,6 +9,8 @@ order: due-new
 order_learn: [sort[due]]
 order_new: [sortan[title]]
 order_due: [sort[due]]
+suspend_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}
+bury_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/bury}}
 leech_threshold: 8
 leech_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}
 state_learn: [state[1]] [state[3]] :filter[{!!due}compare:date:lt<now [UTC]YYYY0MM0DD0hh0mm0ss0XXX>]

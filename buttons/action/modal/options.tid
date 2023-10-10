@@ -4,18 +4,18 @@ subtitle: {{$:/language/tidme/options}}: <$text text=<<deckTiddler>> />
 code-body: yes
 
 \define inputfield(field)
-<$edit-text tiddler="$:/temp/tidme/options" tag="input" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}}/>
+<$edit-text tiddler="$:/temp/tidme/options" tag="input" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}}/>
 \end
 
 \define textfield(field)
-<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}/>
+<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}/>
 \end
 
 \define studyorder()
 <$select
     tiddler="$:/temp/tidme/options"
     field="order"
-    default="due-new"
+    default={{$:/Deck/default!!order}}
 >
     <option value="due-new">
         due-new
@@ -30,19 +30,19 @@ code-body: yes
 \end
 
 \define leechthreshold()
-<center>''<$text text={{$:/temp/tidme/options!!leech_threshold}}/>''</center>
+<center>{{$:/language/tidme/leechthreshold}}: ''<$text text={{{ [<deckTiddler>get[leech_threshold]] ~[{$:/Deck/default!!leech_threshold}] }}}/>''</center>
 <$range
     tiddler="$:/temp/tidme/options"
     field="leech_threshold"
     min="3"
     max="10"
-    default="8"
+    default={{{ [<deckTiddler>get[leech_threshold]] ~[{$:/Deck/default!!leech_threshold}] }}}
     increment="1"
 />
 \end
 
 \define disablededit(field)
-<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}} disabled={{{ [{$:/config/Tidme/Options/expert}match[yes]then[no]else[yes]] }}}/>
+<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}} disabled={{{ [{$:/config/Tidme/Options/expert}match[yes]then[no]else[yes]] }}}/>
 \end
 
 |tc-max-width tc-edit-max-width|k
@@ -104,11 +104,13 @@ code-body: yes
 |{{$:/language/tidme/excludecard}}|<<textfield card_exclude>>|
 |{{$:/language/tidme/unfoldcard}}|<<textfield card_unfold>>|
 
-!!! {{$:/language/tidme/leech}}
+!!! {{$:/language/tidme/action}}
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/leechthreshold}}|<<leechthreshold>>|
-|{{$:/language/tidme/leechaction}}|<<textfield leech_action>>|
+|{{$:/language/tidme/suspend}}|<<textfield suspend_action>>|
+|{{$:/language/tidme/bury}}|<<textfield bury_action>>|
+|{{$:/language/tidme/leech}}|<<leechthreshold>><br><<textfield leech_action>>|
+
 
 !! {{$:/language/tidme/expert}}
 

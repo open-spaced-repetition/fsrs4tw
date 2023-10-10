@@ -15,7 +15,7 @@ title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/bury
             aria-label={{$:/language/tidme/bury}}
             class=<<tv-config-toolbar-class>>
         >
-            {{$:/plugins/tidme/fsrs4tw/buttons/action/bury}}
+            <<bury_action>>
             <$list
                 filter="[<tv-config-toolbar-icons>match[yes]]"
             >
