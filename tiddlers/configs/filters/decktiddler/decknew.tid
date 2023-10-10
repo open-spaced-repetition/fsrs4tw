@@ -2,4 +2,4 @@ title: $:/config/Tidme/Filters/decknew
 tags: $:/tags/TidmeFilter/DeckTiddler
 list-after: $:/config/Tidme/Filters/deckdue
 
-[all[shadows+tiddlers]removesuffix[/study]tag[$:/tags/TidmeDeck]] :filter[subfilter{!!card}subfilter{!!state_new}match<..currentTiddler>]
+[all[shadows+tiddlers]removesuffix[/study]tag[$:/tags/TidmeDeck]] :filter[subfilter{!!card}!subfilter{!!card_exclude}subfilter{!!state_new}match<..currentTiddler>]
