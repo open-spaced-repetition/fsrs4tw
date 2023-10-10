@@ -6,26 +6,8 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     justify-content: space-between;
     align-items:center;
     font-weight: bold;
-    border-bottom: 1px solid #f1f1f1;
+    border-bottom: 1px solid <<colour table-border>>;
     padding-bottom:10px;
-}
-
-.tr-deck{
-    flex:0 1 40%;
-    display: flex;
-    justify-content:flex-start;
-}
-
-.tr-study{
-    flex:0 1 15%;
-    display: flex;
-    justify-content:center;
-}
-
-.tr-action{
-    flex:0 1 15%;
-    display: flex;
-    justify-content:flex-end;
 }
 
 .tmc-tr{
@@ -35,22 +17,43 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     height: 40px;
 }
 
-.tmc-showbutton{
+.tmc-tr .tmc-button-show{
     margin: 0 3px !important;
 }
 
-.tmc-button-hide{
+.tmc-tr .tmc-button-hide{
     opacity: 0;
     margin: 0 3px !important;
 }
 
 .tmc-tr:hover {
-    background-color: #f1f1f1;
+    background-color: <<colour page-background>>;
 }
 
 .tmc-tr:hover .tmc-button-hide{
     opacity: 1 !important;
 }
+
+.tmc-tr-deck{
+    flex:0 1 40%;
+    display: flex;
+    justify-content:flex-start;
+}
+
+
+.tmc-tr-study{
+    flex:0 1 15%;
+    display: flex;
+    justify-content:center;
+}
+
+.tmc-tr-action{
+    flex:0 1 15%;
+    display: flex;
+    justify-content:flex-end;
+}
+
+
 
 .tmc-btn-primary {
     background: <<colour primary>>;

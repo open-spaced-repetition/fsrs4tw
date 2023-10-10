@@ -1,0 +1,9 @@
+tags: $:/tags/Image
+title: $:/plugins/tidme/fsrs4tw/icons/stop
+
+<svg width="22pt" height="22pt" class="tc-image-button" viewBox="0 0 128 128">
+  <g id="stop" clip-path="url(#clip_1)">
+    <path d="M128 0L128 0L128 128L0 128L0 0L128 0Z" id="stop" fill="none" stroke="none" />
+    <path d="M28 16L100 16C106.625 16 112 21.375 112 28L112 100C112 106.625 106.625 112 100 112L28 112C21.375 112 16 106.625 16 100L16 28C16 21.375 21.375 16 28 16L28 16Z" id="Shape" stroke="none" />
+  </g>
+</svg>

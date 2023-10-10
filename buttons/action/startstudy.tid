@@ -1,8 +1,11 @@
 title: $:/plugins/tidme/fsrs4tw/buttons/action/startstudy
 tags: $:/tags/TidmeDeck/Study
+icon: $:/plugins/tidme/fsrs4tw/icons/start
+custom-caption: yes
 caption: {{$:/language/tidme/startstudy}}
+description: {{$:/language/tidme/startstudy}}
 condition: [<deckTiddler>!is[blank]]
-button-classes: tc-tiddlylink
+button-classes: tmc-button-show
 code-body: yes
 
 <$let

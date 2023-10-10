@@ -16,19 +16,33 @@ code-body: yes
         animate="yes"
     >
         <center>
-            <h2>
-                <$wikify
-                    name="deckCaption"
-                    text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
-                    mode="inline"
-                    output="text"
+            <div>
+                <h2>
+                    <$wikify
+                        name="deckCaption"
+                        text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
+                        mode="inline"
+                        output="text"
+                    >
+                        <<deckCaption>>
+                    </$wikify>
+                </h2>
+            </div>
+            <div>
+                <$text
+                    text={{{ [<deckTiddler>get[card]] }}}
+                />
+            </div>
+            <div>
+                <$let
+                    filter_search=`[[$(deckTiddler)$]] [[$(deckTiddler)$]shadowsource[]] [subfilter{$(deckTiddler)$!!card}is[tiddler]] [[$(deckTiddler)$]shadowsource[]plugintiddlers[]is[tiddler]] +[!prefix[$:/plugins/tidme/]]`
                 >
-                    <<deckCaption>>
-                 </$wikify>
-            </h2>
-            <$text
-                text={{{ [<deckTiddler>get[card]] }}}
-            />
+                    <$list
+                        filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Action]!has[draft.of]]"
+                        template="$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button"
+                    />
+                </$let>
+            </div>
         </center>
 
         <br>{{!!description}}<br>

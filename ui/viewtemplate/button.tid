@@ -3,7 +3,7 @@ code-body: yes
 
 \define tidme-button-icon()
 <$list
-    filter="[all[current]!has[custom-icon]]"
+    filter="[<custom-icon>!match[yes]]"
     variable="no-custom-icon"
 >
     <$transclude
@@ -14,7 +14,7 @@ code-body: yes
 
 \define tidme-button-caption()
 <$list
-    filter="[all[current]!has[custom-caption]]"
+    filter="[<custom-caption>!match[yes]]"
     variable="no-custom-caption"
 >
    <$wikify

@@ -1,0 +1,9 @@
+tags: $:/tags/Image
+title: $:/plugins/tidme/fsrs4tw/icons/start
+
+<svg width="22pt" height="22pt" class="tc-image-button" viewBox="0 0 128 128">
+  <g id="start" clip-path="url(#clip_1)">
+    <path d="M128 0L128 0L128 128L0 128L0 0L128 0Z" id="start" fill="none" stroke="none" />
+    <path d="M16 20L16 108C16 120 26.1562 119.937 26.1562 119.937L27.1875 119.937C29.1562 119.969 31.0938 119.531 32.7812 118.562L111.156 73.7812C114.625 71.8438 116.406 67.9062 116.406 63.9688C116.406 60.0313 114.625 56.0938 111.156 54.1875L32.7813 9.40625C31.0938 8.43751 29.1563 8 27.1875 8L26.1563 8C26.1563 8 16 8 16 20L16 20Z" id="Shape" stroke="none" />
+  </g>
+</svg>

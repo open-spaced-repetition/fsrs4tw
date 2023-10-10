@@ -21,4 +21,7 @@ code-body: yes
     >
         {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy}}
     </$list>
+    <$action-sendmessage
+        $message="tm-close-tiddler"
+    />
 </$let>
