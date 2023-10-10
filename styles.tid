@@ -35,7 +35,6 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     height: 40px;
 }
 
-
 .tmc-showbutton{
     margin: 0 3px !important;
 }
@@ -71,16 +70,16 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     fill: <<colour background>>;
 }
 
-.tmc-unfold-wrapper{
-    display:flex;
-    justify-content:center;
-    align-items: flex-end;
-}
-
-.tmc-reating-wrapper{
+.tmc-repeat-wrapper{
     display:flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    align-items: flex-end;
+}
+
+.tmc-repeat-wrapper-1{
+    display:flex;
+    justify-content:center;
     align-items: flex-end;
 }
 

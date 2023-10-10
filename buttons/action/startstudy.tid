@@ -5,7 +5,6 @@ condition: [<deckTiddler>!is[blank]]
 button-classes: tc-tiddlylink
 code-body: yes
 
-
 <$let
     nextTiddler={{{ [subfilter<filter_queue>first[]] }}}
 >
@@ -31,9 +30,6 @@ code-body: yes
             $param=`[data-tiddler-title="$(nextTiddler)$"] .tmc-hideinput input`
             preventScroll="true"
         />
-        <div class="tmc-text-sg">
-            <$text text={{$:/language/tidme/next}}/>
-        </div>
     </$reveal>
     <$reveal
         default=<<nextTiddler>>

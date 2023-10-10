@@ -43,6 +43,10 @@ hard: Hard
 good: Good
 easy: Easy
 retain: Retain
+suspend: Suspend
+suspendtip: Suspend this card and not study it again
+bury: Bury
+burytip: Bury this cardand study it tomorrow
 stopstudy: Stop Study
 type: Type Question
 typetip: Insert edit of Type Question(see manual for usage)

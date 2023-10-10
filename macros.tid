@@ -3,6 +3,21 @@ tags: $:/tags/Global
 
 \whitespace trim
 
+\widget $fsrs4tw.repeat(ratings:'Retain')
+<div class={{{ [subfilter<ratings>count[]compare:number:gt[1]then[tmc-repeat-wrapper]else[tmc-repeat-wrapper-1]] }}}>
+    <$let
+        cards_json={{{ [<studyTiddler>fsrs<p>] }}}
+    >
+        <$list
+            filter=<<ratings>>
+            variable="rating"
+        >
+            {{$:/plugins/tidme/fsrs4tw/buttons/action/repeat||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
+        </$list>
+    </$let>
+</div>
+\end
+
 \define C(hide,show:"...",id:"default")
 <$reveal
     state=<<folded-state>>

@@ -11,15 +11,19 @@ code-body: yes
 \end
 
 \define ratingaction(rating)
-<$list
-    filter="$rating$"
-    variable="rating"
+<$let
+    cards_json={{{ [<studyTiddler>fsrs<p>] }}}
 >
-    <$transclude
-    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/repeat"
-    mode="inline"
-    />
-</$list>
+    <$list
+        filter="$rating$"
+        variable="rating"
+    >
+        <$transclude
+        tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/repeat"
+        mode="inline"
+        />
+    </$list>
+</$let>
 \end
 
 <$list
@@ -34,40 +38,46 @@ code-body: yes
         output="text"
     >
         <div class="tmc-hideinput">
-            <$list
-                filter="[{$:/info/browser/is/mobile}!match[yes]]"
-                variable="ignore"
-            >
-                <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
-                <$keyboard key="((tidme-fold))" actions=<<foldaction>> >
-                <$keyboard key="((tidme-again))" actions=<<ratingaction Again>> >
-                <$keyboard key="((tidme-hard))" actions=<<ratingaction Hard>> >
-                <$keyboard key="((tidme-good))" actions=<<ratingaction Good>> >
-                <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
-                <$keyboard key="((tidme-retain))" actions=<<ratingaction Retain>> >
-                    <$edit-text
-                        tag="input"
-                        tiddler="$:/temp/tidme/study/input"
-                        field="shortcut"
-                        placeholder=<<deckCaption>>
-                        focus="yes"
-                    />
-                </$keyboard>
-                </$keyboard>
-                </$keyboard>
-                </$keyboard>
-                </$keyboard>
-                </$keyboard>
-                </$keyboard>
-            </$list>
-            <$list
-                filter="[{$:/info/browser/is/mobile}match[yes]]"
-                variable="ignore"
-            >
-                <center class="tmc-text-sg">
-                    <<deckCaption>>
-                </center>
-            </$list>
+            <$fieldmangler>
+                <$list
+                    filter="[{$:/info/browser/is/mobile}!match[yes]]"
+                    variable="ignore"
+                >
+                    <$keyboard key="((tidme-fold))" actions=<<foldaction>> >
+                    <$keyboard key="((tidme-again))" actions=<<ratingaction Again>> >
+                    <$keyboard key="((tidme-hard))" actions=<<ratingaction Hard>> >
+                    <$keyboard key="((tidme-good))" actions=<<ratingaction Good>> >
+                    <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
+                    <$keyboard key="((tidme-retain))" actions=<<ratingaction Retain>> >
+                    <$keyboard key="((tidme-suspend))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}>
+                    <$keyboard key="((tidme-bury))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/bury}}>
+                    <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
+                        <$edit-text
+                            tag="input"
+                            tiddler="$:/temp/tidme/study/input"
+                            field="shortcut"
+                            placeholder=<<deckCaption>>
+                            focus="yes"
+                        />
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                    </$keyboard>
+                </$list>
+                <$list
+                    filter="[{$:/info/browser/is/mobile}match[yes]]"
+                    variable="ignore"
+                >
+                    <center class="tmc-text-sg">
+                        <<deckCaption>>
+                    </center>
+                </$list>
+            </$fieldmangler>
         </div>
     </$wikify>
 </$list>

@@ -1,0 +1,24 @@
+title: $:/plugins/tidme/fsrs4tw/buttons/action/bury
+icon: $:/plugins/tidme/fsrs4tw/icons/bury
+description: {{$:/language/tidme/bury}}
+condition: [<deckTiddler>!is[blank]]
+button-classes: tmc-button-hide
+code-body: yes
+
+\define tv-action-refresh-policy() always
+
+<$let
+    currentTiddler=<<studyTiddler>>
+    dateformat="[UTC]YYYY0MM0DD0hh0mm0ss0XXX"
+>
+    <$action-setfield
+        due={{{ [<now [UTC]YYYY0MM0DD0hh0mm0ss0XXX>format:date[TIMESTAMP]add[86400000]format:timestamp<dateformat>] }}}
+        $timestamp={{$:/config/TimestampDisable}}
+    />
+    <$list
+        filter="[<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>]"
+        variable="ignore"
+    >
+        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy}}
+    </$list>
+</$let>

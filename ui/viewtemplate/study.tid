@@ -12,18 +12,6 @@ code-body: yes
 />
 \end
 
-\define ratingaction(rating)
-<$list
-    filter="$rating$"
-    variable="rating"
->
-    <$transclude
-    tiddler="$:/plugins/tidme/fsrs4tw/buttons/action/repeat"
-    mode="inline"
-    />
-</$list>
-\end
-
 <$list
     filter="[<studyTiddler>!is[blank]]"
     variable="studyTiddler"
@@ -52,28 +40,14 @@ code-body: yes
                 type="nomatch"
                 text=""
             >
-                <div class="tmc-unfold-wrapper">
-                    <$list
-                        filter="Retain"
-                        variable="rating"
-                    >
-                        {{$:/plugins/tidme/fsrs4tw/buttons/action/repeat||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
-                    </$list>
-                </div>
+                <$fsrs4tw.repeat/>
             </$reveal>
             <$reveal
                 default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
                 type="match"
                 text=""
             >
-                <div class="tmc-reating-wrapper">
-                    <$list
-                        filter="Again Hard Good Easy"
-                        variable="rating"
-                    >
-                        {{$:/plugins/tidme/fsrs4tw/buttons/action/repeat||$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button}}
-                    </$list>
-                </div>
+                <$fsrs4tw.repeat ratings="Again Hard Good Easy">
             </$reveal>
         </$fieldmangler>
     </$reveal>

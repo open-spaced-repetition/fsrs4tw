@@ -10,13 +10,11 @@ code-body: yes
     rating={{{ [<rating>!is[blank]match[Retain]then[Good]else<rating>] }}}
     rating_nlow={{{ [<rating_n>lowercase[]] }}}
     rating_low={{{ [<rating>lowercase[]] }}}
-    p={{{ [<deckTiddler>get[p]] }}}
-    fsrs_json={{{ [<studyTiddler>fsrs<p>] }}}
 >
     <$let
         currentTiddler=<<studyTiddler>>
-        card={{{ [<fsrs_json>jsonget[Rating],<rating>] :map[<fsrs_json>jsonextract[Cards],<currentTiddler>,[card]] }}}
-        review_log={{{ [<fsrs_json>jsonget[Rating],<rating>] :map[<fsrs_json>jsonextract[Cards],<currentTiddler>,[review_log]] }}}
+        card={{{ [<cards_json>jsonget[Rating],<rating>] :map[<cards_json>jsonextract[Cards],<currentTiddler>,[card]] }}}
+        review_log={{{ [<cards_json>jsonget[Rating],<rating>] :map[<cards_json>jsonextract[Cards],<currentTiddler>,[review_log]] }}}
     >
         <$list
             filter="[<card>jsonget[lapses]compare:number:gteq<leech_threshold>]"
@@ -45,17 +43,23 @@ code-body: yes
         <$action-deletetiddler
             $filter="[all[shadows+tiddlers]prefix[$:/temp/tidme/]]"
         />
-        <div class="tmc-text-sg">
-            <$text text={{{ [<card>jsonget[due]format:relativedate[]] }}}/>
+        <div>
+            <div class="tmc-text-sg">
+                <$text text={{{ [<card>jsonget[due]format:relativedate[]] }}}/>
+            </div>
+            <div class=`tmc-btn-$(rating_low)$`>
+                <$text text={{{ [<rating_nlow>addprefix[$:/language/tidme/]get[text]] }}}/>
+            </div>
         </div>
     </$let>
-    <span class=`tmc-btn-$(rating_low)$`>
-        <$text text={{{ [<rating_nlow>addprefix[$:/language/tidme/]get[text]] }}}/>
-    </span>
+
 </$let>
 <$list
     filter="[<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>]"
     variable="ignore"
 >
     {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy}}
+    <div class="tmc-text-sg">
+        <$text text={{$:/language/tidme/next}}/>
+    </div>
 </$list>

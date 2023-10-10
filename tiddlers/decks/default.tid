@@ -10,7 +10,7 @@ order_learn: [sort[due]]
 order_new: [sortan[title]]
 order_due: [sort[due]]
 leech_threshold: 8
-leech_action: <$action-sendmessage $message="tm-add-tag" $param="!"/>
+leech_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}
 state_learn: [state[1]] [state[3]] :filter[{!!due}compare:date:lt<now [UTC]YYYY0MM0DD0hh0mm0ss0XXX>]
 state_due: [state[2]has[due]] -[!days:due[1]]
 state_new: [!has[state]] [state[0]]

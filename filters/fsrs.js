@@ -11,7 +11,7 @@ Export our filter function
     /*global $tw: false */
     "use strict";
 
-    var fsrsJs = require("$:/plugins/tidme/fsrs4tw/files/fsrs/fsrs.js");
+    var fsrsJs = require("$:/plugins/tidme/fsrs4tw/fsrs/fsrs.js");
 
     /*
     Export our filter function

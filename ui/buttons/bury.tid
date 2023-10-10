@@ -1,0 +1,35 @@
+caption: {{$:/plugins/tidme/fsrs4tw/icons/bury}} {{$:/language/tidme/bury}}
+description: {{$:/language/tidme/burytip}}
+tags: $:/tags/ViewToolbar
+title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/bury
+
+\whitespace trim
+
+<$list
+    filter="[<studyTiddler>!is[blank]]"
+    variable="studyTiddler"
+>
+    <$fieldmangler>
+        <$button
+            tooltip={{$:/language/tidme/burytip}}
+            aria-label={{$:/language/tidme/bury}}
+            class=<<tv-config-toolbar-class>>
+        >
+            {{$:/plugins/tidme/fsrs4tw/buttons/action/bury}}
+            <$list
+                filter="[<tv-config-toolbar-icons>match[yes]]"
+            >
+                {{$:/plugins/tidme/fsrs4tw/icons/bury}}
+            </$list>
+            <$list
+                filter="[<tv-config-toolbar-text>match[yes]]"
+            >
+                <span class="tc-btn-text">
+                    <$text
+                        text={{$:/language/tidme/bury}}
+                    />
+                </span>
+            </$list>
+        </$button>
+    </$fieldmangler>
+</$list>
