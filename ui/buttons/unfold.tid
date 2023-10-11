@@ -1,7 +1,7 @@
-caption: {{$:/plugins/tidme/fsrs4tw/icons/suspend}} {{$:/language/tidme/suspend}}
-description: {{$:/language/tidme/suspendtip}}
+caption: {{$:/plugins/tidme/fsrs4tw/icons/unfold}} {{$:/language/tidme/unfold}}
+description: {{$:/language/tidme/unfoldtip}}
 tags: $:/tags/ViewToolbar
-title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/suspend
+title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/unfold
 
 \whitespace trim
 
@@ -11,22 +11,22 @@ title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/suspend
 >
     <$fieldmangler>
         <$button
-            tooltip={{$:/language/tidme/suspendtip}}
-            aria-label={{$:/language/tidme/suspend}}
+            tooltip={{$:/language/tidme/unfoldtip}}
+            aria-label={{$:/language/tidme/unfold}}
             class=<<tv-config-toolbar-class>>
         >
-            <<suspend_action>>
+            <<unfold_action>>
             <$list
                 filter="[<tv-config-toolbar-icons>match[yes]]"
             >
-                {{$:/plugins/tidme/fsrs4tw/icons/suspend}}
+                {{$:/plugins/tidme/fsrs4tw/icons/unfold}}
             </$list>
             <$list
                 filter="[<tv-config-toolbar-text>match[yes]]"
             >
             <span class="tc-btn-text">
                 <$text
-                    text={{$:/language/tidme/suspend}}
+                    text={{$:/language/tidme/unfold}}
                 />
             </span>
             </$list>

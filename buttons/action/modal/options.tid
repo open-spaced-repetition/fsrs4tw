@@ -4,11 +4,39 @@ subtitle: {{$:/language/tidme/options}}: <$text text=<<deckTiddler>> />
 code-body: yes
 
 \define inputfield(field)
-<$edit-text tiddler="$:/temp/tidme/options" tag="input" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}}/>
+<$edit-text
+    tiddler="$:/temp/tidme/options"
+    tag="input"
+    field=<<__field__>>
+    placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}}
+/>
 \end
 
 \define textfield(field)
-<$edit-text tiddler="$:/temp/tidme/options" tag="textarea" field=<<__field__>> placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}} minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}/>
+<$edit-text
+    tiddler="$:/temp/tidme/options"
+    tag="textarea"
+    field=<<__field__>>
+    placeholder={{{ [<deckTiddler>get<__field__>] ~[[$:/Deck/default]get<__field__>] }}}
+    minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}
+/>
+\end
+
+\define inputfield-noph(field)
+<$edit-text
+    tiddler="$:/temp/tidme/options"
+    tag="input"
+    field=<<__field__>>
+/>
+\end
+
+\define textfield-noph(field)
+<$edit-text
+    tiddler="$:/temp/tidme/options"
+    tag="textarea"
+    field=<<__field__>>
+    minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}
+/>
 \end
 
 \define studyorder()
@@ -18,13 +46,13 @@ code-body: yes
     default={{$:/Deck/default!!order}}
 >
     <option value="due-new">
-        due-new
+       {{$:/language/tidme/learn}} -> {{$:/language/tidme/due}} -> {{$:/language/tidme/new}}
     </option>
     <option value="new-due">
-        new-due
+        {{$:/language/tidme/learn}} -> {{$:/language/tidme/new}} -> {{$:/language/tidme/due}}
     </option>
     <option value="random">
-        random
+        {{$:/language/tidme/learn}} -> {{$:/language/tidme/random}}
     </option>
 </$select>
 \end
@@ -46,9 +74,9 @@ code-body: yes
 \end
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/caption}}|<<inputfield caption>>|
+|{{$:/language/tidme/caption}}|<<inputfield-noph caption>>|
 |{{$:/language/tidme/cardfilter}}|<<textfield card>><br>@@font-size:10px;{{$:/language/tidme/cardfiltertip}}@@|
-|{{$:/language/tidme/description}}|<<textfield description>>|
+|{{$:/language/tidme/description}}|<<textfield-noph description>>|
 
 <$reveal
     default={{$:/config/Tidme/Options/advanced}}
@@ -90,25 +118,26 @@ code-body: yes
 !!! {{$:/language/tidme/studyorder}}
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/cardtype}}|<<studyorder>>|
+|{{$:/language/tidme/cardstate}}|<<studyorder>>|
 
 !!! {{$:/language/tidme/displayorderfilter}}
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/duecard}}|<<textfield order_due>>|
-|{{$:/language/tidme/newcard}}|<<textfield order_new>>|
+|{{$:/language/tidme/due}}|<<textfield order_due>>|
+|{{$:/language/tidme/new}}|<<textfield order_new>>|
 
 !!! {{$:/language/tidme/cardtypefilter}}
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/excludecard}}|<<textfield card_exclude>>|
-|{{$:/language/tidme/unfoldcard}}|<<textfield card_unfold>>|
+|{{$:/language/tidme/exclude}}|<<textfield card_exclude>>|
+|{{$:/language/tidme/unfold}}|<<textfield card_unfold>>|
 
 !!! {{$:/language/tidme/action}}
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/suspend}}|<<textfield suspend_action>>|
-|{{$:/language/tidme/bury}}|<<textfield bury_action>>|
+|{{$:/language/tidme/exclude}}|<<textfield exclude_action>>|
+|{{$:/language/tidme/unfold}}|<<textfield unfold_action>>|
+|{{$:/language/tidme/tomorrow}}|<<textfield tomorrow_action>>|
 |{{$:/language/tidme/leech}}|<<leechthreshold>><br><<textfield leech_action>>|
 
 
@@ -119,9 +148,9 @@ code-body: yes
 !!! {{$:/language/tidme/cardstatefilter}}
 
 |tc-max-width tc-edit-max-width|k
-|{{$:/language/tidme/learncard}}|<<disablededit state_learn>>|
-|{{$:/language/tidme/duecard}}|<<disablededit state_due>>|
-|{{$:/language/tidme/newcard}}|<<disablededit state_new>>|
+|{{$:/language/tidme/learn}}|<<disablededit state_learn>>|
+|{{$:/language/tidme/due}}|<<disablededit state_due>>|
+|{{$:/language/tidme/new}}|<<disablededit state_new>>|
 
 !!! {{$:/language/tidme/param}}
 

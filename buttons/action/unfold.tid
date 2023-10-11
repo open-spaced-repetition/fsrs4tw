@@ -1,6 +1,6 @@
-title: $:/plugins/tidme/fsrs4tw/buttons/action/exclude
-icon: $:/plugins/tidme/fsrs4tw/icons/exclude
-description: {{$:/language/tidme/exclude}}
+title: $:/plugins/tidme/fsrs4tw/buttons/action/unfold
+icon: $:/plugins/tidme/fsrs4tw/icons/unfold
+description: {{$:/language/tidme/unfold}}
 condition: [<deckTiddler>!is[blank]]
 button-classes: tmc-button-hide
 code-body: yes
@@ -12,7 +12,7 @@ code-body: yes
 >
     <$action-sendmessage
         $message="tm-add-tag"
-        $param="!"
+        $param="."
         $timestamp={{$:/config/TimestampDisable}}
     />
     <$list

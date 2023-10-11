@@ -1,0 +1,9 @@
+tags: $:/tags/Image
+title: $:/plugins/tidme/fsrs4tw/icons/unfold
+
+<svg width="22pt" height="22pt" class="tc-image-button" viewBox="0 0 128 128">
+  <g id="unfold" clip-path="url(#clip_1)">
+    <path d="M128 0L128 0L128 128L0 128L0 0L128 0Z" id="unfold" fill="none" stroke="none" />
+    <path d="M64.2337 14.2315C36.6164 14.2315 14.2337 36.6174 14.2337 64.2315C14.2337 91.8456 36.6167 114.232 64.2337 114.232C91.845 114.232 114.234 91.8453 114.234 64.2315C114.234 36.617 91.845 14.2315 64.2337 14.2315L64.2337 14.2315Z" id="Group" stroke="none" />
+  </g>
+</svg>

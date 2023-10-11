@@ -1,4 +1,5 @@
 title: $:/config/ViewToolbarButtons/Visibility/$:/plugins/tidme/fsrs4tw/core/ui/Buttons/
 
-suspend: hide
-bury: hide
+exclude: hide
+unfold: hide
+tomorrow: hide

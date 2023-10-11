@@ -9,10 +9,11 @@ order: due-new
 order_learn: [sort[due]]
 order_new: [sortan[title]]
 order_due: [sort[due]]
-suspend_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}
-bury_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/bury}}
+exclude_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/exclude}}
+unfold_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/unfold}}
+tomorrow_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/tomorrow}}
 leech_threshold: 8
-leech_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}
+leech_action: {{$:/plugins/tidme/fsrs4tw/buttons/action/exclude}}
 state_learn: [state[1]] [state[3]] :filter[{!!due}compare:date:lt<now [UTC]YYYY0MM0DD0hh0mm0ss0XXX>]
 state_due: [state[2]has[due]] -[!days:due[1]]
 state_new: [!has[state]] [state[0]]

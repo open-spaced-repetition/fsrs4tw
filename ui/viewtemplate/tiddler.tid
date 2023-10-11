@@ -9,8 +9,8 @@ title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tiddler
     p={{{ [<deckTiddler>get[p]else{$:/Deck/default!!p}] }}}
     leech_threshold={{{ [<deckTiddler>get[leech_threshold]else{$:/Deck/default!!leech_threshold}] }}}
     leech_action={{{ [<deckTiddler>get[leech_action]else{$:/Deck/default!!leech_action}] }}}
-    suspend_action={{{ [<deckTiddler>get[suspend_action]else{$:/Deck/default!!suspend_action}] }}}
-    bury_action= {{{ [<deckTiddler>get[bury_action]else{$:/Deck/default!!bury_action}] }}}
+    exclude_action={{{ [<deckTiddler>get[exclude_action]else{$:/Deck/default!!exclude_action}] }}}
+    tomorrow_action= {{{ [<deckTiddler>get[tomorrow_action]else{$:/Deck/default!!tomorrow_action}] }}}
     filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}sort[due]]`
     filter_due=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_due}subfilter{$(deckTiddler)$!!order_due}]`
     filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}subfilter{$(deckTiddler)$!!order_new}]`

@@ -7,8 +7,8 @@ tidme-hard: 2
 tidme-good: 3
 tidme-easy: 4
 tidme-retain: r
-tidme-suspend: s
-tidme-bury: b
+tidme-exclude: e
+tidme-tomorrow: t
 tidme-type: alt-t
 tidme-cloze: alt-c
 tidme-select: alt-s

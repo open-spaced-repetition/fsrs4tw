@@ -38,7 +38,7 @@ code-body: yes
                     filter_search=`[[$(deckTiddler)$]] [[$(deckTiddler)$]shadowsource[]] [subfilter{$(deckTiddler)$!!card}is[tiddler]] [[$(deckTiddler)$]shadowsource[]plugintiddlers[]is[tiddler]] +[!prefix[$:/plugins/tidme/]]`
                 >
                     <$list
-                        filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Action]!has[draft.of]]"
+                        filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Action]!is[draft]]"
                         template="$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button"
                     />
                 </$let>
@@ -47,9 +47,9 @@ code-body: yes
 
         <br>{{!!description}}<br>
         <$let
-            filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}]`
-            filter_due=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_due}]`
-            filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}]`
+            filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}sort[due]]`
+            filter_due=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_due}subfilter{$(deckTiddler)$!!order_due}]`
+            filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}subfilter{$(deckTiddler)$!!order_new}]`
             filter_unfold=`[subfilter{$(deckTiddler)$!!card_unfold}]`
             filter_random=`[subfilter<filter_due>] [subfilter<filter_new>] +[sortrandom[]]`
             due-new=`$(filter_learn)$ $(filter_due)$ $(filter_new)$`
@@ -74,7 +74,7 @@ code-body: yes
                 </div>
                 <div style="display:flex;flex-direction:column;align-items:center;justify-content:space-around;" >
                     <$list
-                        filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Study]!has[draft.of]]"
+                        filter="[all[shadows+tiddlers]tag[$:/tags/TidmeDeck/Study]!is[draft]]"
                         template="$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/button"
                     />
                 </div>

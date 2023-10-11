@@ -15,14 +15,16 @@ cardfiltertip: Filtering tiddlers as cards in this Deck.
 description: Description
 advanced: Advanced
 studyorder: Study Order
-cardtype: Card type
+cardstate: Card state
 displayorderfilter: Display Order Filter
-learncard: Learn card
-duecard: Due card
-newcard: New card
+random: Rando
 cardtypefilter: Card Type Filter
-excludecard: Exclude card
-unfoldcard: Unfold card
+exclude: Exclude
+excludetip: Exclude this card and not study it again
+unfold: Unfold
+unfoldtip: Unfold this card when studying
+tomorrow: Tomorrow
+tomorrowtip: Study this card tomorrow
 action: [[Action|https://tiddlywiki.com/#ActionWidgets]]
 leech: Leech
 leechthreshold: Threshold
@@ -43,10 +45,6 @@ hard: Hard
 good: Good
 easy: Easy
 retain: Retain
-suspend: Suspend
-suspendtip: Suspend this card and not study it again
-bury: Bury
-burytip: Bury this cardand study it tomorrow
 stopstudy: Stop Study
 type: Type Question
 typetip: Insert edit of Type Question(see manual for usage)

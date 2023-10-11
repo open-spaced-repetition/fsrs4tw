@@ -23,7 +23,7 @@ code-body: yes
             value=<<currentTiddler>>
         >
             <$list
-                filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!has[draft.of]]"
+                filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!is[draft]]"
             >
                 <$reveal
                     type="nomatch"
@@ -35,7 +35,7 @@ code-body: yes
                 </$reveal>
             </$list>
             <$list
-                filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!has[draft.of]]"
+                filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!is[draft]]"
             >
                 <$list
                     filter={{!!condition}}

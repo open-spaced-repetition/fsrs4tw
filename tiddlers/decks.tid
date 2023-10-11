@@ -19,7 +19,7 @@ icon: $:/plugins/tidme/fsrs4tw/icon
     </div>
 </div>
 
-<<list-tagged-draggable tag:"$:/tags/TidmeDeck" subFilter:"![$:/temp/tidme/options]!has[draft.of]" itemTemplate:"$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tr" storyview:"classic" >>
+<<list-tagged-draggable tag:"$:/tags/TidmeDeck" subFilter:"![$:/temp/tidme/options]!is[draft]" itemTemplate:"$:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tr" storyview:"classic" >>
 
 <div class="tmc-decks-button-wrapper">
     <$button

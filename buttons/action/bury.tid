@@ -1,6 +1,6 @@
-title: $:/plugins/tidme/fsrs4tw/buttons/action/bury
-icon: $:/plugins/tidme/fsrs4tw/icons/bury
-description: {{$:/language/tidme/bury}}
+title: $:/plugins/tidme/fsrs4tw/buttons/action/tomorrow
+icon: $:/plugins/tidme/fsrs4tw/icons/tomorrow
+description: {{$:/language/tidme/tomorrow}}
 condition: [<deckTiddler>!is[blank]]
 button-classes: tmc-button-hide
 code-body: yes

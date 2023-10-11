@@ -1,0 +1,35 @@
+caption: {{$:/plugins/tidme/fsrs4tw/icons/exclude}} {{$:/language/tidme/exclude}}
+description: {{$:/language/tidme/excludetip}}
+tags: $:/tags/ViewToolbar
+title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/exclude
+
+\whitespace trim
+
+<$list
+    filter="[<studyTiddler>!is[blank]]"
+    variable="studyTiddler"
+>
+    <$fieldmangler>
+        <$button
+            tooltip={{$:/language/tidme/excludetip}}
+            aria-label={{$:/language/tidme/exclude}}
+            class=<<tv-config-toolbar-class>>
+        >
+            <<exclude_action>>
+            <$list
+                filter="[<tv-config-toolbar-icons>match[yes]]"
+            >
+                {{$:/plugins/tidme/fsrs4tw/icons/exclude}}
+            </$list>
+            <$list
+                filter="[<tv-config-toolbar-text>match[yes]]"
+            >
+            <span class="tc-btn-text">
+                <$text
+                    text={{$:/language/tidme/exclude}}
+                />
+            </span>
+            </$list>
+        </$button>
+    </$fieldmangler>
+</$list>
