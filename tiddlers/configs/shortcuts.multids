@@ -8,7 +8,7 @@ tidme-good: 3
 tidme-easy: 4
 tidme-retain: r
 tidme-exclude: e
-tidme-tomorrow: t
+tidme-unfold: u
 tidme-type: alt-t
 tidme-cloze: alt-c
 tidme-select: alt-s

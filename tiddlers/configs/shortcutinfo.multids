@@ -8,7 +8,7 @@ tidme-good: {{$:/language/tidme/good}}
 tidme-easy: {{$:/language/tidme/easy}}
 tidme-retain: {{$:/language/tidme/retain}}
 tidme-exclude: {{$:/language/tidme/exclude}}
-tidme-tomorrow: {{$:/language/tidme/tomorrow}}
+tidme-unfold: {{$:/language/tidme/unfold}}
 tidme-type: {{$:/language/tidme/type}}
 tidme-cloze: {{$:/language/tidme/cloze}}
 tidme-select: {{$:/language/tidme/select}}

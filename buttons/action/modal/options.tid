@@ -137,7 +137,6 @@ code-body: yes
 |tc-max-width tc-edit-max-width|k
 |{{$:/language/tidme/exclude}}|<<textfield exclude_action>>|
 |{{$:/language/tidme/unfold}}|<<textfield unfold_action>>|
-|{{$:/language/tidme/tomorrow}}|<<textfield tomorrow_action>>|
 |{{$:/language/tidme/leech}}|<<leechthreshold>><br><<textfield leech_action>>|
 
 

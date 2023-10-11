@@ -61,14 +61,14 @@ code-body: yes
                     <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
                     <$keyboard key="((tidme-retain))" actions=<<ratingaction Retain>> >
                     <$keyboard key="((tidme-exclude))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/exclude}}>
-                    <$keyboard key="((tidme-tomorrow))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/tomorrow}}>
+                    <$keyboard key="((tidme-unfold))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/unfold}}>
                     <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
                         <$edit-text
                             tag="input"
                             tiddler="$:/temp/tidme/study/input"
                             field="shortcut"
                             placeholder=<<deckCaption>>
-                            focus="yes"
+                            focus={{{ [<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>then[yes]] }}}
                         />
                     </$keyboard>
                     </$keyboard>

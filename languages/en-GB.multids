@@ -23,8 +23,6 @@ exclude: Exclude
 excludetip: Exclude this card and not study it again
 unfold: Unfold
 unfoldtip: Unfold this card when studying
-tomorrow: Tomorrow
-tomorrowtip: Study this card tomorrow
 action: [[Action|https://tiddlywiki.com/#ActionWidgets]]
 leech: Leech
 leechthreshold: Threshold
