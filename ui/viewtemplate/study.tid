@@ -31,7 +31,6 @@ code-body: yes
         stateTitle=<<folded-state>>
         text="hide"
         default="show"
-        retain="yes"
         animate="yes"
     >
         <$fieldmangler>
