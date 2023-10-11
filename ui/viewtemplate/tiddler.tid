@@ -7,10 +7,11 @@ title: $:/plugins/tidme/fsrs4tw/ui/ViewTemplate/tiddler
     studyTiddler=<<currentTiddler>>
     deckTiddler={{{ [subfilter{$:/config/Tidme/Filters/decktiddler}first[]] }}}
     p={{{ [<deckTiddler>get[p]else{$:/Deck/default!!p}] }}}
+    exclude_action={{{ [<deckTiddler>get[exclude_action]else{$:/Deck/default!!exclude_action}] }}}
+    unfold_action={{{ [<deckTiddler>get[unfold_action]else{$:/Deck/default!!unfold_action}] }}}
+    tomorrow_action= {{{ [<deckTiddler>get[tomorrow_action]else{$:/Deck/default!!tomorrow_action}] }}}
     leech_threshold={{{ [<deckTiddler>get[leech_threshold]else{$:/Deck/default!!leech_threshold}] }}}
     leech_action={{{ [<deckTiddler>get[leech_action]else{$:/Deck/default!!leech_action}] }}}
-    exclude_action={{{ [<deckTiddler>get[exclude_action]else{$:/Deck/default!!exclude_action}] }}}
-    tomorrow_action= {{{ [<deckTiddler>get[tomorrow_action]else{$:/Deck/default!!tomorrow_action}] }}}
     filter_learn=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_learn}sort[due]]`
     filter_due=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_due}subfilter{$(deckTiddler)$!!order_due}]`
     filter_new=`[subfilter{$(deckTiddler)$!!card}!subfilter{$(deckTiddler)$!!card_exclude}subfilter{$(deckTiddler)$!!state_new}subfilter{$(deckTiddler)$!!order_new}]`

@@ -15,13 +15,4 @@ code-body: yes
         $param="."
         $timestamp={{$:/config/TimestampDisable}}
     />
-    <$list
-        filter="[<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>]"
-        variable="ignore"
-    >
-        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy}}
-    </$list>
-    <$action-sendmessage
-        $message="tm-close-tiddler"
-    />
 </$let>
