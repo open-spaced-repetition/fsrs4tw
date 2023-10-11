@@ -30,7 +30,18 @@ code-body: yes
     filter="[<studyTiddler>!is[blank]]"
     variable="studyTiddler"
 >
-    <div class=`${ [<currentTiddler>has[caption]then[tmc-tiddler-empty]] }$`/>
+    <$list
+        filter="[<studyTiddler>has[caption]]"
+        variable="ignore"
+    >
+        <div class="tmc-title-hide"/>
+    </$list>
+    <$list
+        filter="[<studyTiddler>!has[caption]has:field[reverse]addprefix[$:/state/folded/]get[text]match[hide]]"
+        variable="ignore"
+    >
+        <div class="tmc-title-hide"/>
+    </$list>
     <$wikify
         name="deckCaption"
         text={{{ [<deckTiddler>get[caption]] ~[<deckTiddler>split[/]last[]] }}}
@@ -49,8 +60,8 @@ code-body: yes
                     <$keyboard key="((tidme-good))" actions=<<ratingaction Good>> >
                     <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
                     <$keyboard key="((tidme-retain))" actions=<<ratingaction Retain>> >
-                    <$keyboard key="((tidme-suspend))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/suspend}}>
-                    <$keyboard key="((tidme-bury))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/bury}}>
+                    <$keyboard key="((tidme-exclude))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/exclude}}>
+                    <$keyboard key="((tidme-tomorrow))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/tomorrow}}>
                     <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
                         <$edit-text
                             tag="input"
