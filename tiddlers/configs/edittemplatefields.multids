@@ -9,7 +9,6 @@ reps: hide
 scheduled_days: hide
 stability: hide
 state: hide
-description: hide
 card: hide
 card_unfold: hide
 card_exclude: hide

@@ -52,7 +52,6 @@ code-body: yes
             </div>
         </div>
     </$let>
-
 </$let>
 <$list
     filter="[<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>]"
