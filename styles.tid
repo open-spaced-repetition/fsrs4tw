@@ -86,22 +86,6 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     align-items: flex-end;
 }
 
-.tmc-btn-again{
-    color: red !important;
-}
-
-.tmc-btn-hard{
-    color: orange !important;
-}
-
-.tmc-btn-good{
-    color: green !important;
-}
-
-.tmc-btn-easy{
-    color: blue !important;
-}
-
 .tmc-decks-button-wrapper{
     display:flex;
     justify-content: space-around;

@@ -6,10 +6,9 @@ code-body: yes
 \define tv-action-refresh-policy() always
 
 <$let
-    rating_n=<<rating>>
-    rating={{{ [<rating>!is[blank]match[Retain]then[Good]else<rating>] }}}
-    rating_nlow={{{ [<rating_n>lowercase[]] }}}
-    rating_low={{{ [<rating>lowercase[]] }}}
+    rating_origin=<<rating>>
+    rating={{{ [<rating>match[Again]then<rating>] ~[<rating>match[Hard]then<rating>] ~[<rating>match[Easy]then<rating>] ~[[Good]] }}}
+    color={{{ [<rating>match[Again]then[red]] ~[<rating>match[Hard]then[orange]] ~[<rating>match[Easy]then[DodgerBlue]] ~[[green]] }}}
 >
     <$let
         currentTiddler=<<studyTiddler>>
@@ -27,8 +26,8 @@ code-body: yes
             />
         </$list>
         <$action-setmultiplefields
-            $fields="[<card>jsonindexes[]]"
-            $values="[<card>jsonindexes[]] :map[<card>jsonget<currentTiddler>]"
+            $fields="[<card>jsonindexes[]] =annotate-colour"
+            $values="[<card>jsonindexes[]] :map[<card>jsonget<currentTiddler>] =[<color>]"
             $timestamp={{$:/config/TimestampDisable}}
         />
         <$action-setfield
@@ -45,10 +44,14 @@ code-body: yes
         />
         <div>
             <div class="tmc-text-sg">
-                <$text text={{{ [<card>jsonget[due]format:relativedate[]] }}}/>
+                <$text
+                    text={{{ [<card>jsonget[due]format:relativedate[]] }}}
+                />
             </div>
-            <div class=`tmc-btn-$(rating_low)$`>
-                <$text text={{{ [<rating_nlow>addprefix[$:/language/tidme/]get[text]] }}}/>
+            <div class=`tmc-btn-${ [<rating>lowercase[]] }$` style=`color:$(color)$;`>
+                <$text
+                    text={{{ [<rating_origin>else[Good]lowercase[]addprefix[$:/language/tidme/]get[text]] }}}
+                />
             </div>
         </div>
     </$let>
