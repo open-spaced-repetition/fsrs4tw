@@ -14,16 +14,18 @@ title: $:/plugins/tidme/fsrs4tw/styles.css
     display:flex;
     justify-content: space-between;
     align-items:center;
-    height: 40px;
+    padding:10px 0;
 }
 
 .tmc-tr .tmc-button-show{
     margin: 0 3px !important;
+    flex-shrink: 0;
 }
 
 .tmc-tr .tmc-button-hide{
     opacity: 0;
     margin: 0 3px !important;
+    flex-shrink: 0;
 }
 
 .tmc-tr:hover {
