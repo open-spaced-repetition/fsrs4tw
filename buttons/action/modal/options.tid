@@ -58,7 +58,7 @@ code-body: yes
 \end
 
 \define leechthreshold()
-<center>{{$:/language/tidme/leechthreshold}}: ''<$text text={{{ [<deckTiddler>get[leech_threshold]] ~[{$:/Deck/default!!leech_threshold}] }}}/>''</center>
+<center>{{$:/language/tidme/leechthreshold}}: ''<$text text={{{ [{$:/temp/tidme/options!!leech_threshold}else{$:/Deck/default!!leech_threshold}] }}}/>''</center>
 <$range
     tiddler="$:/temp/tidme/options"
     field="leech_threshold"
