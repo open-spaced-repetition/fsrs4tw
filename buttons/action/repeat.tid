@@ -7,8 +7,8 @@ code-body: yes
 
 <$let
     rating_origin=<<rating>>
-    rating={{{ [<rating>match[Again]then<rating>] ~[<rating>match[Hard]then<rating>] ~[<rating>match[Easy]then<rating>] ~[[Good]] }}}
-    color={{{ [<rating>match[Again]then[red]] ~[<rating>match[Hard]then[orange]] ~[<rating>match[Easy]then[DodgerBlue]] ~[[green]] }}}
+    rating={{{ [<rating>match[Again]then<rating>] ~[<rating>match[Hard]then<rating>] ~[<rating>match[Good]then<rating>] ~[[Easy]] }}}
+    color={{{ [<rating>match[Again]then[red]] ~[<rating>match[Hard]then[orange]] ~[<rating>match[Good]then[green]] ~[[dodgerblue]] }}}
 >
     <$let
         currentTiddler=<<studyTiddler>>
@@ -50,7 +50,7 @@ code-body: yes
             </div>
             <div class=`tmc-btn-${ [<rating>lowercase[]] }$` style=`color:$(color)$;`>
                 <$text
-                    text={{{ [<rating_origin>else[Good]lowercase[]addprefix[$:/language/tidme/]get[text]] }}}
+                    text={{{ [<rating_origin>lowercase[]addprefix[$:/language/tidme/]get[text]] }}}
                 />
             </div>
         </div>
