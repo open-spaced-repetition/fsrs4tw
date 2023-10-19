@@ -59,7 +59,7 @@ code-body: yes
                     <$keyboard key="((tidme-hard))" actions=<<ratingaction Hard>> >
                     <$keyboard key="((tidme-good))" actions=<<ratingaction Good>> >
                     <$keyboard key="((tidme-easy))" actions=<<ratingaction Easy>> >
-                    <$keyboard key="((tidme-retain))" actions=<<ratingaction Retain>> >
+                    <$keyboard key="((tidme-next))" actions=<<ratingaction Good>> >
                     <$keyboard key="((tidme-exclude))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/exclude}}>
                     <$keyboard key="((tidme-unfold))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/unfold}}>
                     <$keyboard key="((tidme-stopstudy))" actions={{$:/plugins/tidme/fsrs4tw/buttons/action/stopstudy}}>
@@ -68,7 +68,7 @@ code-body: yes
                             tiddler="$:/temp/tidme/study/input"
                             field="shortcut"
                             placeholder=<<deckCaption>>
-                            focus={{{ [<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>then[yes]] }}}
+                            focus={{{ [<studyTiddler>subfilter{$:/config/Tidme/Filters/decklist}match<deckTiddler>then[yes]] }}}
                         />
                     </$keyboard>
                     </$keyboard>

@@ -3,7 +3,7 @@ tags: $:/tags/Global
 
 \whitespace trim
 
-\widget $fsrs4tw.repeat(ratings:'Retain')
+\widget $fsrs4tw.repeat(ratings:'')
 <div class={{{ [subfilter<ratings>count[]compare:number:gt[1]then[tmc-repeat-wrapper]else[tmc-repeat-wrapper-1]] }}}>
     <$let
         cards_json={{{ [<studyTiddler>fsrs<p>] }}}

@@ -34,20 +34,7 @@ code-body: yes
         animate="yes"
     >
         <$fieldmangler>
-            <$reveal
-                default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
-                type="nomatch"
-                text=""
-            >
-                <$fsrs4tw.repeat/>
-            </$reveal>
-            <$reveal
-                default={{{ [subfilter<filter_unfold>match<studyTiddler>] }}}
-                type="match"
-                text=""
-            >
                 <$fsrs4tw.repeat ratings="Again Hard Good Easy">
-            </$reveal>
         </$fieldmangler>
     </$reveal>
 </$list>

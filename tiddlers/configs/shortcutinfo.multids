@@ -6,7 +6,7 @@ tidme-again: {{$:/language/tidme/again}}
 tidme-hard: {{$:/language/tidme/hard}}
 tidme-good: {{$:/language/tidme/good}}
 tidme-easy: {{$:/language/tidme/easy}}
-tidme-retain: {{$:/language/tidme/retain}}
+tidme-next: {{$:/language/tidme/next}}
 tidme-exclude: {{$:/language/tidme/exclude}}
 tidme-unfold: {{$:/language/tidme/unfold}}
 tidme-type: {{$:/language/tidme/type}}
