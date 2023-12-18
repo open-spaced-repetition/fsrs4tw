@@ -18,176 +18,110 @@ tags: $:/tags/Global
 </div>
 \end
 
-\define C(hide,show:"...",id:"default")
-<$reveal
-    state=<<folded-state>>
-    type="nomatch"
-    text="show"
-    animate="yes"
+\define C(hide,id:"default",show:"...")
+<$let
+    inputTiddler={{{ [[$:/temp/tidme/study/input/]addsuffix<currentTiddler>] }}}
 >
-    <$button
-        class="tc-btn-invisible"
-    >
-        <$action-setfield
-            $tiddler="$:/temp/tidme/study/input"
-            $index=<<__id__>>
-            $value={{{ [[$:/temp/tidme/study/input]getindex<__id__>match[show]then[]else[show]] }}}
-        />
-        <$reveal
-            default={{{ [[$:/temp/tidme/study/input]getindex<__id__>] }}}
-            type="match"
-            text="show"
-            animate="yes"
-        >
-            __$hide$__
-        </$reveal>
-        <$reveal
-            default={{{ [[$:/temp/tidme/study/input]getindex<__id__>] }}}
-            type="nomatch"
-            text="show"
-            animate="yes"
-        >
-            `[$show$]`
-        </$reveal>
-    </$button>
-</$reveal>
-<$reveal
-    state=<<folded-state>>
-    type="match"
-    text="show"
-    animate="yes"
->
+    <% if [<folded-state>get[text]match[show]] %>
     __$hide$__
-</$reveal>
+    <% else %>
+        <$button
+            class="tc-btn-invisible"
+        >
+            <$action-setfield
+                $tiddler=<<inputTiddler>>
+                $index=<<__id__>>
+                $value={{{ [<inputTiddler>getindex<__id__>match[show]then[]else[show]] }}}
+            />
+            <% if [<inputTiddler>getindex<__id__>match[show]] %>
+
+                __$hide$__
+            <% else %>
+                `[$show$]`
+            <% endif %>
+        </$button>
+    <% endif %>
+</$let>
 \end
 
 \define T(field:"text")
-<$reveal
-    state=<<folded-state>>
-    type="match"
-    text="hide"
-    animate="yes"
+<$let
+    inputTiddler={{{ [[$:/temp/tidme/study/input/]addsuffix<currentTiddler>] }}}
 >
-    <$edit
-        tiddler="$:/temp/tidme/study/input"
-        placeholder={{$:/language/EditTemplate/Body/Placeholder}}
-        minHeight={{$:/themes/tiddlywiki/vanilla/metrics/fontsize}}
-        class="tc-edit-texteditor tc-edit-texteditor-body"
-    >
-    </$edit>
-</$reveal>
-<$reveal
-    default={{$:/temp/tidme/study/input}}
-    type="nomatch"
-    text=""
-    animate="yes"
->
-    <$reveal
-        state=<<folded-state>>
-        type="match"
-        text="show"
-        animate="yes"
-    >
-        <$diff-text
-            source={{$:/temp/tidme/study/input}}
-            dest={{!!$field$}}
-        />
-    </$reveal>
-</$reveal>
+    <% if [<folded-state>get[text]match[hide]] %>
+        <$edit
+            tiddler=<<inputTiddler>>
+            placeholder={{$:/language/EditTemplate/Body/Placeholder}}
+            minHeight={{$:/themes/tiddlywiki/vanilla/metrics/fontsize}}
+            class="tc-edit-texteditor tc-edit-texteditor-body"
+        >
+        </$edit>
+    <% elseif [<folded-state>get[text]match[show]] %>
+        <% if [<inputTiddler>get[text]] %>
+            <$diff-text
+                source={{{ [<inputTiddler>get[text]] }}}
+                dest={{!!$field$}}
+            />
+        <% endif %>
+    <% endif %>
+</$let>
 \end
 
 \define S(option,answer:"")
-
-<$list
-    filter="[<__option__>trim[]splitregexp[\n]]"
-    variable="optioncontent"
-    counter="optionid"
+<$let
+    inputTiddler={{{ [[$:/temp/tidme/study/input/]addsuffix<currentTiddler>] }}}
 >
-    <$let
-        selectid={{{ [<__answer__>split[]count[]match[1]then[id]else<optionid>] }}}
+    <$list
+        filter="[<__option__>trim[]splitregexp[\n]]"
+        variable="optioncontent"
+        counter="optionid"
     >
-        <$reveal
-            state=<<folded-state>>
-            type="nomatch"
-            text="show"
-            animate="yes"
+        <br/>
+        <$let
+            selectid={{{ [<__answer__>split[]count[]match[1]then[id]else<optionid>] }}}
         >
-
-            <$reveal
-                default={{{ [<__answer__>split[]count[]] }}}
-                type="lteq"
-                text="1"
-            >
-                <$radio
-                    tiddler="$:/temp/tidme/study/input"
-                    index=<<selectid>>
-                    value=<<optionid>>
-                    default=""
+            <% if [<folded-state>get[text]match[show]] %>
+                <$button
+                    disabled="yes"
+                    class="tc-btn-invisible"
                 >
-                    <<optioncontent>>
-                </$radio>
-            </$reveal>
-            <$reveal
-                default={{{ [<__answer__>split[]count[]] }}}
-                type="gt"
-                text="1"
-            >
-                <$checkbox
-                    tiddler="$:/temp/tidme/study/input"
-                    index=<<selectid>>
-                    checked=<<optionid>>
-                    unchecked=""
-                    default=""
-                >
-                    <<optioncontent>>
-                </$checkbox>
-            </$reveal>
-        </$reveal>
-        <$reveal
-            state=<<folded-state>>
-            type="match"
-            text="show"
-            animate="yes"
-        >
-
-            <$button
-                disabled="yes"
-                class="tc-btn-invisible"
-            >
-                <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
-                    type="match"
-                    text="00"
-                    animate="yes"
-                >
-                    {{$:/core/images/blank}}
-                </$reveal>
-                <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
-                    type="match"
-                    text="01"
-                    animate="yes"
-                >
-                    {{$:/core/images/close-button}}
-                </$reveal>
-                <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
-                    type="match"
-                    text="10"
-                    animate="yes"
-                >
-                    {{$:/core/images/warning}}
-                </$reveal>
-                <$reveal
-                    default={{{ [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>then[1]else[0]] =[[$:/temp/tidme/study/input]getindex<selectid>match<optionid>then[1]else[0]] +[join[]] }}}
-                    type="match"
-                    text="11"
-                    animate="yes"
-                >
-                    {{$:/core/images/done-button}}
-                </$reveal>
-            </$button> <<optioncontent>>
-        </$reveal>
-    </$let>
-</$list>
+                    <% if [<__answer__>split[]search-replace[A],[1]search-replace[B],[2]search-replace[C],[3]search-replace[D],[4]search-replace[E],[5]search-replace[F],[6]search-replace[G],[7]search-replace[H],[8]search-replace[I],[9]match<optionid>] %>
+                        <% if [<inputTiddler>getindex<selectid>match<optionid>] %>
+                            {{$:/core/images/done-button}}
+                        <% else %>
+                            {{$:/core/images/warning}}
+                        <% endif %>
+                    <% else %>
+                        <% if [<inputTiddler>getindex<selectid>match<optionid>] %>
+                            {{$:/core/images/close-button}}
+                        <% else %>
+                            {{$:/core/images/blank}}
+                        <% endif %>
+                    <% endif %>
+                </$button> <<optioncontent>>
+            <% else %>
+                <% if [<__answer__>split[]count[]compare:number:lteq[1]] %>
+                    <$radio
+                        tiddler=<<inputTiddler>>
+                        index=<<selectid>>
+                        value=<<optionid>>
+                        default=""
+                    >
+                        <<optioncontent>>
+                    </$radio>
+                <% else %>
+                    <$checkbox
+                        tiddler=<<inputTiddler>>
+                        index=<<selectid>>
+                        checked=<<optionid>>
+                        unchecked=""
+                        default=""
+                    >
+                        <<optioncontent>>
+                    </$checkbox>
+                <% endif %>
+            <% endif %>
+        </$let>
+    </$list>
+</$let>
 \end

@@ -15,7 +15,11 @@ title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/exclude
             aria-label={{$:/language/tidme/exclude}}
             class=<<tv-config-toolbar-class>>
         >
-            <<exclude_action>>
+            <$let
+                currentTiddler=<<studyTiddler>>
+            >
+                <<exclude_action>>
+            </$let>
             <$list
                 filter="[<tv-config-toolbar-icons>match[yes]]"
             >

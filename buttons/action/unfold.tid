@@ -7,12 +7,9 @@ code-body: yes
 
 \define tv-action-refresh-policy() always
 
-<$let
-    currentTiddler=<<studyTiddler>>
->
-    <$action-sendmessage
-        $message="tm-add-tag"
-        $param="."
-        $timestamp={{$:/config/TimestampDisable}}
-    />
-</$let>
+
+<$action-sendmessage
+    $message="tm-add-tag"
+    $param="."
+    $timestamp={{$:/config/TimestampDisable}}
+/>

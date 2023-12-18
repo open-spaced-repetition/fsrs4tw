@@ -15,7 +15,11 @@ title: $:/plugins/tidme/fsrs4tw/core/ui/Buttons/unfold
             aria-label={{$:/language/tidme/unfold}}
             class=<<tv-config-toolbar-class>>
         >
-            <<unfold_action>>
+            <$let
+                currentTiddler=<<studyTiddler>>
+            >
+                <<unfold_action>>
+            </$let>
             <$list
                 filter="[<tv-config-toolbar-icons>match[yes]]"
             >

@@ -1,6 +1,6 @@
 {
     "author": "oflg",
-    "core-version": ">=5.3.0",
+    "core-version": ">=5.3.2",
     "dependents": "$:/plugins/tiddlywiki/confetti $:/plugins/tiddlywiki/browser-sniff",
     "description": "TiddlyWiki-based memory programme using advanced FSRS algorithm",
     "list": "readme license",
@@ -8,5 +8,5 @@
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/Tidme",
     "title": "$:/plugins/tidme/fsrs4tw",
-    "version": "1.5.4"
+    "version": "1.5.5"
 }

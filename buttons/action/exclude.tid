@@ -7,21 +7,18 @@ code-body: yes
 
 \define tv-action-refresh-policy() always
 
-<$let
-    currentTiddler=<<studyTiddler>>
+
+<$action-sendmessage
+    $message="tm-add-tag"
+    $param="!"
+    $timestamp={{$:/config/TimestampDisable}}
+/>
+<$list
+    filter="[<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>]"
+    variable="ignore"
 >
-    <$action-sendmessage
-        $message="tm-add-tag"
-        $param="!"
-        $timestamp={{$:/config/TimestampDisable}}
-    />
-    <$list
-        filter="[<studyTiddler>] :cascade[{$:/config/Tidme/Filters/decklist}] +[match<deckTiddler>]"
-        variable="ignore"
-    >
-        {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy}}
-    </$list>
-    <$action-sendmessage
-        $message="tm-close-tiddler"
-    />
-</$let>
+    {{$:/plugins/tidme/fsrs4tw/buttons/action/startstudy}}
+</$list>
+<$action-sendmessage
+    $message="tm-close-tiddler"
+/>
