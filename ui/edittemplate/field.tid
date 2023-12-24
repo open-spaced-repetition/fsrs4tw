@@ -12,7 +12,7 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
 
 \whitespace trim
 <$let
-    edit-preview-state={{{ [{$:/config/ShowEditPreview/PerTiddler}!match[yes]then[$:/state/showeditpreview]] :else[<qualify "$:/state/showeditpreview">] }}}
+    editPreviewStateTiddler={{{ [{$:/config/ShowEditPreview/PerTiddler}!match[yes]then[$:/state/showeditpreview]] :else[<qualify "$:/state/showeditpreview">] }}}
     importTitle=<<qualify $:/ImportImage>>
     importState=<<qualify $:/state/ImportImage>>
 >
@@ -25,34 +25,66 @@ $:/config/EditorToolbarButtons/Visibility/$(currentTiddler)$
         filesOnly="yes"
         actions=<<importFileActions>>
     >
-        <$reveal
-            stateTitle=<<edit-preview-state>>
-            type="match"
-            text="yes"
-            tag="div"
-        >
-            <div class="tc-tiddler-preview">
-                <$transclude
-                    tiddler="$:/plugins/tidme/fsrs4tw/ui/EditTemplate/editor"
-                    mode="inline"
-                />
-                <div class="tc-tiddler-preview-preview" data-tiddler-title={{!!draft.title}} data-tags={{!!tags}}>
-                    <$transclude
-                        tiddler={{$:/state/editpreviewtype}}
-                        mode="inline"
+        <div>
+            <div class={{{ [<editPreviewStateTiddler>get[text]match[yes]then[tc-tiddler-preview]else[tc-tiddler-preview-hidden]] [[tc-tiddler-editor]] +[join[ ]] }}}>
+                <$edit
+                    field="caption"
+                    tag="textarea"
+                    minHeight={{$:/themes/tiddlywiki/vanilla/metrics/lineheight}}
+                    class="tc-edit-texteditor tc-edit-texteditor-body"
+                    placeholder={{$:/language/tidme/captionplaceholder}}
+                    tabindex={{$:/config/EditTabIndex}}
+                    focus={{{ [{$:/config/AutoFocus}match[text]then[true]] ~[[false]] }}}
+                    cancelPopups="yes"
+                    fileDrop={{{ [{$:/config/DragAndDrop/Enable}match[no]] :else[subfilter{$:/config/Editor/EnableImportFilter}then[yes]else[no]] }}}
+                >
+                    <$list
+                        filter="[<storyTiddler>has:field[caption]]"
+                        variable="ignore"
                     >
+                        <$set
+                            name="targetTiddler"
+                            value=<<currentTiddler>>
+                        >
+                            <$list
+                                filter="[all[shadows+tiddlers]tag[$:/tags/EditorToolbar]!is[draft]]"
+                            >
+                                <$reveal
+                                    type="nomatch"
+                                    state=<<config-visibility-title>>
+                                    text="hide"
+                                    class="tc-text-editor-toolbar-item-wrapper"
+                                >
+                                    <$transclude
+                                        tiddler="$:/core/ui/EditTemplate/body/toolbar/button"
+                                        mode="inline"
+                                    />
+                                </$reveal>
+                            </$list>
+                            <$list
+                                filter="[all[shadows+tiddlers]tag[$:/tags/EditorTools]!is[draft]]"
+                            >
+                                <$list
+                                    filter={{!!condition}}
+                                    variable="list-condition"
+                                >
+                                    <$transclude/>
+                                </$list>
+                            </$list>
+                        </$set>
+                    </$list>
+                </$edit>
+                <$list
+                    filter="[<editPreviewStateTiddler>get[text]match[yes]]"
+                    variable="ignore"
+                >
+                    <div class="tc-tiddler-preview-preview" data-tiddler-title={{!!draft.title}} data-tags={{!!tags}}>
                         <$transclude
                             field="caption"
                         />
-                    </$transclude>
-                </div>
+                    </div>
+                </$list>
             </div>
-        </$reveal>
-        <$reveal stateTitle=<<edit-preview-state>> type="nomatch" text="yes" tag="div">
-            <$transclude
-                tiddler="$:/plugins/tidme/fsrs4tw/ui/EditTemplate/editor"
-                mode="inline"
-            />
-        </$reveal>
+        </div>
     </$dropzone>
 </$let>
